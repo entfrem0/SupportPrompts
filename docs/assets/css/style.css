@@ -398,3 +398,7 @@ table thead {
 .kb-footer__inner {
   max-width: 1400px;
 }
+
+.kb-article {
+  overflow: auto;
+}
