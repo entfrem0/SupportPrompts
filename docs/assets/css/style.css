@@ -391,3 +391,10 @@ table thead {
     background: #0a111d;
   }
 }
+
+/* 以下追加分 */
+.kb-hero__inner,
+.kb-content,
+.kb-footer__inner {
+  max-width: 1200px;
+}
