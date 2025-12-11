@@ -348,14 +348,6 @@ table thead {
 }
 
 @media (max-width: 960px) {
-  .kb-hero__inner,
-  .kb-content,
-  .kb-footer__inner {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 960px) {
   .kb-content {
     grid-template-columns: 1fr;
     margin-top: -16px;
@@ -412,3 +404,14 @@ table thead {
   margin-top: 24px !important;
 }
 
+@media (max-width: 960px) {
+  .kb-hero__inner,
+  .kb-content,
+  .kb-footer__inner {
+    max-width: 100% !important;
+  }
+
+  .kb-content {
+    grid-template-columns: 1fr !important;
+  }
+}
