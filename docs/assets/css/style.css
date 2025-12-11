@@ -274,10 +274,3 @@ table td {
     --kb-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
   }
 }
-
-@media (max-width: 480px) {
-  .kb-article {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-}
