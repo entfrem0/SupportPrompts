@@ -108,8 +108,10 @@ a:focus {
   border-bottom: 1px solid var(--kb-border);
 }
 
+/* ← ここを安全な値に変更！ */
 .kb-hero__inner {
-  max-width: 1400px; /* ← 拡張しても安全な部分のみ 1400px */
+  max-width: 960px;   /* ← スマホで横スクロールが出なくなる */
+  width: 100%;
   margin: 0 auto;
   padding: 32px 24px;
 }
@@ -144,7 +146,6 @@ a:focus {
   min-height: 100vh;
 }
 
-/* コンテンツは幅 960px のまま（安全） */
 .kb-content {
   max-width: 960px;
   margin: -32px auto 64px;
@@ -196,7 +197,6 @@ a:focus {
   border: 1px solid var(--kb-border);
 }
 
-/* 見出しなど（元のまま） */
 .kb-article h2 {
   margin-top: 48px;
   margin-bottom: 16px;
@@ -220,7 +220,7 @@ a:focus {
 }
 
 .kb-footer__inner {
-  max-width: 1400px; /* ← 拡張しても安全 */
+  max-width: 960px;   /* ← footerも安全な幅に戻す */
   margin: 0 auto;
   padding: 24px;
   text-align: center;
@@ -254,7 +254,7 @@ table td {
 @media (max-width: 960px) {
   .kb-content {
     grid-template-columns: 1fr;
-    max-width: 100%; /* ← スマホで確実に全幅に */
+    max-width: 100%;
     margin-top: -16px;
   }
 
@@ -263,7 +263,7 @@ table td {
   }
 }
 
-/* Dark Mode（元のまま） */
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --kb-bg: #0f141e;
@@ -272,19 +272,5 @@ table td {
     --kb-text: #e6ebff;
     --kb-muted: #9aa4b8;
     --kb-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
-  }
-}
-
-/* スマホでは余白を減らす（横スクロール防止 & 枠の正常化） 追加部分*/
-@media (max-width: 960px) {
-
-  /* コンテンツ外枠の余白を削る */
-  .kb-content {
-    padding: 0 12px !important;
-  }
-
-  /* 本文カードの左右も縮める */
-  .kb-article {
-    padding: 24px 16px !important;
   }
 }
