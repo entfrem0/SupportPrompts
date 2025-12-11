@@ -24,6 +24,7 @@ body {
   line-height: 1.7;
   color: var(--kb-text);
   background: var(--kb-bg);
+  overflow-x: hidden; /* ← 追加：横スクロール禁止 */
 }
 
 a {
@@ -36,7 +37,6 @@ a:focus {
   text-decoration: underline;
 }
 
-/* Header */
 .kb-header {
   background: var(--kb-surface);
   border-bottom: 1px solid var(--kb-border);
@@ -98,7 +98,6 @@ a:focus {
   box-shadow: 0 3px 12px rgba(0, 161, 198, 0.2);
 }
 
-/* Hero */
 .kb-hero {
   background: linear-gradient(135deg, rgba(0, 161, 198, 0.08), rgba(0, 161, 198, 0));
   border-bottom: 1px solid var(--kb-border);
@@ -117,6 +116,10 @@ a:focus {
   gap: 6px;
   flex-wrap: wrap;
   align-items: center;
+}
+
+.kb-breadcrumb a {
+  color: var(--kb-muted);
 }
 
 .kb-breadcrumb__current {
@@ -139,12 +142,10 @@ a:focus {
   max-width: 640px;
 }
 
-/* Main */
 .kb-main {
   min-height: 100vh;
 }
 
-/* Content */
 .kb-content {
   max-width: 960px;
   margin: -32px auto 64px;
@@ -154,7 +155,11 @@ a:focus {
   gap: 24px;
 }
 
-/* Sidebar */
+/* ← 追加：Grid 子要素が横に広がるのを防止 */
+.kb-content > * {
+  min-width: 0;
+}
+
 .kb-sidebar {
   position: relative;
 }
@@ -218,13 +223,20 @@ a:focus {
   color: var(--kb-muted);
 }
 
-/* Article */
 .kb-article {
   background: var(--kb-surface);
   border-radius: 20px;
   padding: 40px 48px;
   box-shadow: var(--kb-shadow);
   border: 1px solid var(--kb-border);
+}
+
+/* 横長要素のはみ出し防止（追加） */
+.kb-article pre,
+.kb-article table,
+.kb-article img {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .kb-article h2 {
@@ -270,6 +282,10 @@ a:focus {
   margin-top: 6px;
 }
 
+.kb-article strong {
+  font-weight: 600;
+}
+
 .kb-article code {
   background: rgba(31, 41, 51, 0.08);
   padding: 2px 6px;
@@ -300,7 +316,6 @@ a:focus {
   border-radius: 10px;
 }
 
-/* Footer */
 .kb-footer {
   background: var(--kb-surface);
   border-top: 1px solid var(--kb-border);
@@ -315,7 +330,6 @@ a:focus {
   font-size: 13px;
 }
 
-/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -338,11 +352,7 @@ table thead {
   color: var(--kb-muted);
 }
 
-/* ------------------------------
-   📱 スマホ専用（PCには影響なし）
-   ------------------------------ */
 @media (max-width: 960px) {
-
   .kb-content {
     grid-template-columns: 1fr;
     margin-top: -16px;
@@ -355,21 +365,8 @@ table thead {
   .kb-article {
     padding: 32px 28px;
   }
-
-  /* 横にはみ出すのを完全防止（PCには影響なし） */
-  body {
-    overflow-x: hidden;
-  }
-
-  .kb-article pre {
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-break: break-all;
-  }
 }
 
-/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --kb-bg: #0f141e;
@@ -384,7 +381,24 @@ table thead {
     color: var(--kb-text);
   }
 
+  .kb-breadcrumb__current,
+  .kb-sidebar__link,
+  .kb-sidebar__current {
+    color: var(--kb-text);
+  }
+
+  .kb-header,
+  .kb-footer {
+    background: var(--kb-surface);
+  }
+
   .kb-article pre {
     background: #0a111d;
+  }
+}
+
+@media (max-width: 960px) {
+  .kb-sidebar__card {
+    width: 100%;
   }
 }
