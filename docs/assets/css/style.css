@@ -391,3 +391,24 @@ table thead {
     background: #0a111d;
   }
 }
+
+/* 追加分 */
+
+@media (max-width: 640px) {
+  .kb-content {
+    padding: 0 12px;
+    margin: 0 auto 48px;
+  }
+
+  .kb-article {
+    padding: 24px 16px;
+  }
+
+  .kb-sidebar__card {
+    padding: 20px 16px;
+  }
+
+  .kb-hero__inner {
+    padding: 24px 16px;
+  }
+}
