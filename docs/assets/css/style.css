@@ -402,3 +402,26 @@ table thead {
     width: 100%;
   }
 }
+
+/* PC の本文幅を拡大 */
+@media (min-width: 961px) {
+  .kb-content,
+  .kb-hero__inner,
+  .kb-footer__inner {
+    max-width: 1200px !important;
+  }
+}
+
+/* スマホで本文の余白を小さくして横幅フィット */
+@media (max-width: 960px) {
+  .kb-article {
+    padding: 20px 16px !important;
+  }
+
+  .kb-article pre,
+  .kb-article table,
+  .kb-article img {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
