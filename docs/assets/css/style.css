@@ -98,7 +98,7 @@ a:focus {
 }
 
 .kb-hero {
-background: #95d1ff !important;
+background: #87c5ee7f !important;
 border-bottom: 1px solid var(--kb-border);
 }
 
@@ -131,15 +131,13 @@ border-bottom: 1px solid var(--kb-border);
   font-size: 32px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  /* color: var(--kb-text); */
-  color: #ffffff !important;
+  color: var(--kb-text);
 }
 
 .kb-hero__lead {
   margin: 12px 0 0;
   font-size: 15px;
-  /* color: var(--kb-muted); */
-  color: #ffffff !important;
+  color: var(--kb-muted);
   max-width: 100%;      /* 幅を画面いっぱいまで広げる  元々は640px */
   word-break: normal;   /* 日本語の単語単位での強制改行を防ぐ */
   white-space: normal;  /* 改行を通常通りにする */
