@@ -443,3 +443,9 @@ table thead {
   white-space: normal;
   word-break: break-word;
 }
+
+/* URL（パーマリンク）の折り返しを強制 */
+.kb-article a {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
