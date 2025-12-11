@@ -414,6 +414,20 @@ table thead {
   }
 }
 
+/* コードブロックが画面幅を超えて余白を作る対策 */
+.kb-article pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap; /* ← はみ出しを自動で折り返す */
+  word-break: break-all; /* 長いメソッド名でも折り返し */
+}
+
+/* 他の要素も絶対に画面をはみ出さないようにする */
+* {
+  max-width: 100%;
+}
+
+/* ページ全体の横スクロール禁止（最後の保険） */
 body {
   overflow-x: hidden;
 }
