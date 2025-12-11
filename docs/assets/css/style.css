@@ -392,21 +392,37 @@ table thead {
   }
 }
 
-/* 以下追加分 */
+/* --- レイアウト拡張（安全版） --- */
 .kb-hero__inner,
-.kb-content,
 .kb-footer__inner {
   max-width: 1400px;
 }
 
-@media (min-width: 960px) {
+/* 記事本文の h4 調整（あなたの元コード維持） */
+.kb-article ul + h4,
+.kb-article ol + h4 {
+  margin-top: 24px !important;
+}
+
+/* スマホ時（kb-content は画面幅いっぱい） */
+@media (max-width: 960px) {
   .kb-content {
-    max-width: 1400px;
+    max-width: 100%;
   }
 }
 
-@media (max-width: 960px) {
+/* PC 時（kb-content はデフォルト 960px のまま） */
+@media (min-width: 960px) {
   .kb-content {
-    max-width: 100% !important;
+    max-width: 960px;
   }
+}
+
+/* Grid の子要素がはみ出さないように min-width:0 を指定 */
+.kb-content > * {
+  min-width: 0;
+}
+.kb-content .kb-article,
+.kb-content .kb-sidebar {
+  min-width: 0;
 }
