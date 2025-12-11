@@ -150,11 +150,11 @@ border-bottom: 1px solid var(--kb-border);
 
 .kb-content {
   max-width: 1200px; /* 960 */
-  margin: -32px auto 64px;
+  margin: 16px auto 64px;
   padding: 0 24px;
   display: grid;
   grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
-  gap: 24px;
+  gap: 32px;
 }
 
 .kb-sidebar {
