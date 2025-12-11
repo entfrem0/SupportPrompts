@@ -98,7 +98,7 @@ a:focus {
 }
 
 .kb-hero {
-background-color: #61BBFE;
+background: #61BBFE;
 border-bottom: 1px solid var(--kb-border);
 }
 
