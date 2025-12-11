@@ -393,11 +393,11 @@ table thead {
 }
 
 /* 以下追加分 */
-.kb-hero__inner,
+/* .kb-hero__inner,
 .kb-content,
 .kb-footer__inner {
   max-width: 1400px;
-}
+} */
 
 
 .kb-article ul + h4,
