@@ -388,3 +388,14 @@ table thead {
     background: #0a111d;
   }
 }
+
+/* ------------------------------
+PC版だけ本文の最大幅を広げる
+   ------------------------------ */
+@media (min-width: 961px) {
+  .kb-hero__inner,
+  .kb-content,
+  .kb-footer__inner {
+    max-width: 1400px !important;
+  }
+}
