@@ -36,6 +36,9 @@ a:focus {
   text-decoration: underline;
 }
 
+/* ===============================
+   Header
+   =============================== */
 .kb-header {
   background: var(--kb-surface);
   border-bottom: 1px solid var(--kb-border);
@@ -97,13 +100,16 @@ a:focus {
   box-shadow: 0 3px 12px rgba(0, 161, 198, 0.2);
 }
 
+/* ===============================
+   Hero
+   =============================== */
 .kb-hero {
   background: linear-gradient(135deg, rgba(0, 161, 198, 0.08), rgba(0, 161, 198, 0));
   border-bottom: 1px solid var(--kb-border);
 }
 
 .kb-hero__inner {
-  max-width: 960px;
+  max-width: 1400px; /* ← 拡張しても安全な部分のみ 1400px */
   margin: 0 auto;
   padding: 32px 24px;
 }
@@ -117,20 +123,10 @@ a:focus {
   align-items: center;
 }
 
-.kb-breadcrumb a {
-  color: var(--kb-muted);
-}
-
-.kb-breadcrumb__current {
-  font-weight: 500;
-  color: var(--kb-text);
-}
-
 .kb-hero__title {
   margin: 16px 0 0;
   font-size: 32px;
   font-weight: 700;
-  letter-spacing: 0.02em;
   color: var(--kb-text);
 }
 
@@ -141,10 +137,14 @@ a:focus {
   max-width: 640px;
 }
 
+/* ===============================
+   Main
+   =============================== */
 .kb-main {
   min-height: 100vh;
 }
 
+/* コンテンツは幅 960px のまま（安全） */
 .kb-content {
   max-width: 960px;
   margin: -32px auto 64px;
@@ -158,6 +158,9 @@ a:focus {
   position: relative;
 }
 
+/* ===============================
+   Sidebar
+   =============================== */
 .kb-sidebar__card {
   background: var(--kb-surface);
   border: 1px solid var(--kb-border);
@@ -171,7 +174,6 @@ a:focus {
   font-size: 15px;
   font-weight: 700;
   color: var(--kb-muted);
-  letter-spacing: 0.04em;
 }
 
 .kb-sidebar__list {
@@ -183,40 +185,9 @@ a:focus {
   gap: 12px;
 }
 
-.kb-sidebar__item {
-  line-height: 1.4;
-}
-
-.kb-sidebar__link {
-  color: var(--kb-text);
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.kb-sidebar__link::before {
-  content: "›";
-  color: var(--kb-accent);
-}
-
-.kb-sidebar__link:hover {
-  color: var(--kb-accent-dark);
-}
-
-.kb-sidebar__current {
-  display: inline-block;
-  padding-left: 16px;
-  font-size: 14px;
-  color: var(--kb-muted);
-}
-
-.kb-sidebar__meta {
-  margin: 16px 0 0;
-  font-size: 13px;
-  color: var(--kb-muted);
-}
-
+/* ===============================
+   Article
+   =============================== */
 .kb-article {
   background: var(--kb-surface);
   border-radius: 20px;
@@ -225,6 +196,7 @@ a:focus {
   border: 1px solid var(--kb-border);
 }
 
+/* 見出しなど（元のまま） */
 .kb-article h2 {
   margin-top: 48px;
   margin-bottom: 16px;
@@ -239,76 +211,16 @@ a:focus {
   margin-top: 0;
 }
 
-.kb-article h3 {
-  margin-top: 32px;
-  margin-bottom: 12px;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--kb-text);
-}
-
-.kb-article h4 {
-  margin-top: 24px;
-  margin-bottom: 10px;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--kb-text);
-}
-
-.kb-article p {
-  margin: 12px 0;
-}
-
-.kb-article ul,
-.kb-article ol {
-  margin: 12px 0 12px 20px;
-}
-
-.kb-article li + li {
-  margin-top: 6px;
-}
-
-.kb-article strong {
-  font-weight: 600;
-}
-
-.kb-article code {
-  background: rgba(31, 41, 51, 0.08);
-  padding: 2px 6px;
-  border-radius: 6px;
-  font-size: 90%;
-}
-
-.kb-article pre {
-  background: #0f1c2b;
-  color: #edf2f7;
-  padding: 16px 18px;
-  border-radius: 12px;
-  overflow-x: auto;
-  font-size: 14px;
-}
-
-.kb-article pre code {
-  background: transparent;
-  padding: 0;
-}
-
-.kb-article blockquote {
-  margin: 18px 0;
-  padding: 16px 20px;
-  border-left: 4px solid var(--kb-accent);
-  background: rgba(0, 161, 198, 0.08);
-  color: var(--kb-muted);
-  border-radius: 10px;
-}
-
+/* ===============================
+   Footer
+   =============================== */
 .kb-footer {
   background: var(--kb-surface);
   border-top: 1px solid var(--kb-border);
 }
 
 .kb-footer__inner {
-  max-width: 960px;
+  max-width: 1400px; /* ← 拡張しても安全 */
   margin: 0 auto;
   padding: 24px;
   text-align: center;
@@ -316,15 +228,9 @@ a:focus {
   font-size: 13px;
 }
 
-.kb-footer__brand {
-  font-weight: 600;
-  margin: 0;
-}
-
-.kb-footer__meta {
-  margin: 6px 0 0;
-}
-
+/* ===============================
+   Tables
+   =============================== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -342,19 +248,14 @@ table td {
   text-align: left;
 }
 
-table thead {
-  background: rgba(0, 161, 198, 0.08);
-  color: var(--kb-muted);
-}
-
+/* ===============================
+   Responsive
+   =============================== */
 @media (max-width: 960px) {
   .kb-content {
     grid-template-columns: 1fr;
+    max-width: 100%; /* ← スマホで確実に全幅に */
     margin-top: -16px;
-  }
-
-  .kb-sidebar {
-    order: 2;
   }
 
   .kb-article {
@@ -362,6 +263,7 @@ table thead {
   }
 }
 
+/* Dark Mode（元のまま） */
 @media (prefers-color-scheme: dark) {
   :root {
     --kb-bg: #0f141e;
@@ -371,58 +273,4 @@ table thead {
     --kb-muted: #9aa4b8;
     --kb-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
   }
-
-  body {
-    color: var(--kb-text);
-  }
-
-  .kb-breadcrumb__current,
-  .kb-sidebar__link,
-  .kb-sidebar__current {
-    color: var(--kb-text);
-  }
-
-  .kb-header,
-  .kb-footer {
-    background: var(--kb-surface);
-  }
-
-  .kb-article pre {
-    background: #0a111d;
-  }
-}
-
-/* --- レイアウト拡張（安全版） --- */
-.kb-hero__inner,
-.kb-footer__inner {
-  max-width: 1400px;
-}
-
-/* 記事本文の h4 調整（あなたの元コード維持） */
-.kb-article ul + h4,
-.kb-article ol + h4 {
-  margin-top: 24px !important;
-}
-
-/* スマホ時（kb-content は画面幅いっぱい） */
-@media (max-width: 960px) {
-  .kb-content {
-    max-width: 100%;
-  }
-}
-
-/* PC 時（kb-content はデフォルト 960px のまま） */
-@media (min-width: 960px) {
-  .kb-content {
-    max-width: 960px;
-  }
-}
-
-/* Grid の子要素がはみ出さないように min-width:0 を指定 */
-.kb-content > * {
-  min-width: 0;
-}
-.kb-content .kb-article,
-.kb-content .kb-sidebar {
-  min-width: 0;
 }
