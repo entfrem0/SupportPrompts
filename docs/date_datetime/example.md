@@ -6,11 +6,11 @@ nav_order: 2
 lead: よくある質問をベースに、日付／日時データ項目の更新手順と EL 式サンプルをまとめました。
 ---
 
-## **サンプル**
-
-このページでは「日付型／日時型データ項目を更新する」[https://questetra.github.io/SupportPrompts/date_datetime/knowledge/](https://questetra.github.io/SupportPrompts/date_datetime/knowledge/) 
-
-のサンプルを紹介しています。
+> ## 実例を確認したい場合
+> 
+> このページでは、日付型／日時型データ項目の更新手順や EL 式の具体例をまとめたサンプルを紹介しています。
+> 
+> よくある質問をもとにしたサンプルは [こちらのページ](https://questetra.github.io/SupportPrompts/date_datetime/example/) から確認できます。
 
 ---
 
