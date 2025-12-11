@@ -395,20 +395,33 @@ table thead {
 /* 追加分 */
 
 @media (max-width: 640px) {
+
+  /* コンテンツ全体のはみ出し修正 */
   .kb-content {
-    padding: 0 12px;
-    margin: 0 auto 48px;
+    padding: 0 16px !important;
+    margin: 0 auto 48px !important;
+    width: 100% !important;
+    overflow: hidden;
   }
 
+  /* 記事カードの余白調整 */
   .kb-article {
-    padding: 24px 16px;
+    padding: 24px 20px !important;
   }
 
+  /* サイドバーも余白を小さく */
   .kb-sidebar__card {
-    padding: 20px 16px;
+    padding: 20px 16px !important;
   }
 
+  /* ヒーロー部分の余白調整 */
   .kb-hero__inner {
-    padding: 24px 16px;
+    padding: 24px 16px !important;
   }
+}
+
+/* 追加：横スクロール防止（保険） */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
