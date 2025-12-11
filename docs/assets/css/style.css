@@ -98,7 +98,7 @@ a:focus {
 }
 
 .kb-hero {
-background: linear-gradient(135deg, rgba(0, 161, 198, 0.6), rgba(0, 161, 198, 0));
+background-color: #61BBFE;
 border-bottom: 1px solid var(--kb-border);
 }
 
