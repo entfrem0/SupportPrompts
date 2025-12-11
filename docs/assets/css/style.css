@@ -393,9 +393,16 @@ table thead {
 PC版だけ本文の最大幅を広げる
    ------------------------------ */
 @media (min-width: 961px) {
+
+  /* 全体の最大幅 */
   .kb-hero__inner,
   .kb-content,
   .kb-footer__inner {
     max-width: 1400px !important;
+  }
+
+  /* サイドバー + 本文の幅を広げる */
+  .kb-content {
+    grid-template-columns: 300px 1fr !important;
   }
 }
