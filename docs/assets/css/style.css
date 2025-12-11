@@ -401,4 +401,19 @@ table thead {
   .kb-sidebar__card {
     width: 100%;
   }
+
+  .kb-content {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    gap: 16px;
+    overflow-x: hidden;
+  }
+
+  .kb-article {
+    padding: 28px 20px;
+  }
+}
+
+body {
+  overflow-x: hidden;
 }
