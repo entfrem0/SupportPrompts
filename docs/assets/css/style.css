@@ -132,14 +132,14 @@ border-bottom: 1px solid var(--kb-border);
   font-weight: 700;
   letter-spacing: 0.02em;
   /* color: var(--kb-text); */
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .kb-hero__lead {
   margin: 12px 0 0;
   font-size: 15px;
   /* color: var(--kb-muted); */
-  color: #ffffff;
+  color: #ffffff !important;
   max-width: 100%;      /* 幅を画面いっぱいまで広げる  元々は640px */
   word-break: normal;   /* 日本語の単語単位での強制改行を防ぐ */
   white-space: normal;  /* 改行を通常通りにする */
