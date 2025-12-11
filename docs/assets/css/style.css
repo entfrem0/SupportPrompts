@@ -24,6 +24,7 @@ body {
   line-height: 1.7;
   color: var(--kb-text);
   background: var(--kb-bg);
+  overflow-x: hidden; /* ← 追加：横スクロール禁止 */
 }
 
 a {
@@ -154,6 +155,11 @@ a:focus {
   gap: 24px;
 }
 
+/* ← 追加：Grid 子要素が横に広がるのを防止 */
+.kb-content > * {
+  min-width: 0;
+}
+
 .kb-sidebar {
   position: relative;
 }
@@ -223,6 +229,14 @@ a:focus {
   padding: 40px 48px;
   box-shadow: var(--kb-shadow);
   border: 1px solid var(--kb-border);
+}
+
+/* 横長要素のはみ出し防止（追加） */
+.kb-article pre,
+.kb-article table,
+.kb-article img {
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .kb-article h2 {
@@ -316,15 +330,6 @@ a:focus {
   font-size: 13px;
 }
 
-.kb-footer__brand {
-  font-weight: 600;
-  margin: 0;
-}
-
-.kb-footer__meta {
-  margin: 6px 0 0;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -390,14 +395,4 @@ table thead {
   .kb-article pre {
     background: #0a111d;
   }
-}
-
-/* Hero（タイトル部分）だけ広げる：本文には影響しない */
-.kb-hero__inner {
-  max-width: 1200px;
-}
-
-.kb-article ul + h4,
-.kb-article ol + h4 {
-  margin-top: 24px !important;
 }
