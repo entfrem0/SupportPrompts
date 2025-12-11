@@ -1,5 +1,5 @@
-title: Support Prompts Knowledge
-description: Questetra ワークフローのサポート記事を収録するナレッジベース
+title: Support Prompts Guides
+description: Questetra ワークフローのサポート記事を収録するガイド集
 lang: ja
 url: "https://questetra.github.io"
 baseurl: "/SupportPrompts"
@@ -19,7 +19,7 @@ defaults:
       sidebar_title: 同じカテゴリの記事
 
 navigation:
-  - title: ナレッジベース
+  - title: ガイド集
     url: /
   - title: 日付／日時データ更新
     url: /date_datetime/knowledge/
@@ -28,9 +28,13 @@ sections:
   date_datetime:
     title: 日付／日時データ更新
     url: /date_datetime/knowledge/
+  date_datetime_sample:
+    title: 日付／日時データ更新のサンプル
+    url: /date_datetime/example/
 
 section_labels:
   date_datetime: 日付／日時データ更新
+  date_datetime_sample: 日付／日時データ更新のサンプル
 
 kramdown:
   input: GFM

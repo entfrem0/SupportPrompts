@@ -138,7 +138,9 @@ a:focus {
   margin: 12px 0 0;
   font-size: 15px;
   color: var(--kb-muted);
-  max-width: 640px;
+  max-width: 100%;      /* 幅を画面いっぱいまで広げる  元々は640px */
+  word-break: normal;   /* 日本語の単語単位での強制改行を防ぐ */
+  white-space: normal;  /* 改行を通常通りにする */
 }
 
 .kb-main {
