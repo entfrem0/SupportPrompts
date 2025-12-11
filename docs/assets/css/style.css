@@ -424,3 +424,22 @@ table thead {
     padding: 20px 16px !important;
   }
 }
+
+/* --- コードブロックを横スクロールさせる（GitHub方式） --- */
+.kb-article pre {
+  white-space: pre !important;        /* 改行しない（横スクロール前提） */
+  overflow-x: auto !important;        /* 横スクロール追加 */
+  -webkit-overflow-scrolling: touch;  /* iOSでヌルッとスクロール */
+  max-width: 100%;                    /* 枠からはみ出さない */
+}
+
+/* コードブロック内のコード */
+.kb-article pre code {
+  white-space: inherit !important;    /* pre の挙動に従わせる */
+}
+
+/* インラインコードは通常折り返しでOK */
+.kb-article code {
+  white-space: normal;
+  word-break: break-word;
+}
