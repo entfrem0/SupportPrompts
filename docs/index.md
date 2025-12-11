@@ -12,8 +12,6 @@ sidebar_title: 注目の記事
 - [日付／日時データ項目の更新]({{ '/date_datetime/knowledge/' | relative_url }})
 - [日付／日時データ項目の更新のサンプル]({{ '/date_datetime/example/' | relative_url }})
 
-[日付／日時データ項目の更新]({{ '/date_datetime/knowledge/' | relative_url }})/
-└── [日付／日時データ項目の更新のサンプル]({{ '/date_datetime/example/' | relative_url }})
 
 ## はじめに
 
