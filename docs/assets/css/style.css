@@ -274,3 +274,30 @@ table td {
     --kb-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
   }
 }
+
+@media (max-width: 960px) {
+
+  /* 1400px の拡張をスマホでは無効化 */
+  .kb-hero__inner,
+  .kb-footer__inner {
+    max-width: 100% !important;
+  }
+
+  /* 記事の余白調整 */
+  .kb-article {
+    padding: 24px 20px !important;
+  }
+
+  /* 表のはみ出し防止 */
+  table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  /* pre/code のはみ出し防止 */
+  pre {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+}
