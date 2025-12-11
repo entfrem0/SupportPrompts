@@ -392,11 +392,9 @@ table thead {
   }
 }
 
-/* 以下追加分 */
-.kb-hero__inner,
-.kb-content,
-.kb-footer__inner {
-  max-width: 1400px;
+/* Hero（タイトル部分）だけ広げる：本文には影響しない */
+.kb-hero__inner {
+  max-width: 1200px;
 }
 
 .kb-article ul + h4,
