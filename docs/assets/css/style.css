@@ -396,32 +396,31 @@ table thead {
 
 @media (max-width: 640px) {
 
-  /* コンテンツ全体のはみ出し修正 */
+  /* PC の2カラム grid を完全に解除（最重要） */
   .kb-content {
-    padding: 0 16px !important;
-    margin: 0 auto 48px !important;
+    display: block !important;
     width: 100% !important;
-    overflow: hidden;
+    padding: 0 16px !important;
+    margin: 0 auto 32px !important;
+    box-sizing: border-box;
   }
 
-  /* 記事カードの余白調整 */
+  /* 本文カードの余白をスマホ幅に最適化 */
   .kb-article {
+    width: 100% !important;
+    max-width: 100% !important;
     padding: 24px 20px !important;
+    box-sizing: border-box;
   }
 
-  /* サイドバーも余白を小さく */
+  /* サイドバーも縦並びになるので幅を100%に */
+  .kb-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 24px;
+  }
+
   .kb-sidebar__card {
     padding: 20px 16px !important;
   }
-
-  /* ヒーロー部分の余白調整 */
-  .kb-hero__inner {
-    padding: 24px 16px !important;
-  }
-}
-
-/* 追加：横スクロール防止（保険） */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
 }
