@@ -393,14 +393,17 @@ table thead {
 }
 
 /* 以下追加分 */
-/* .kb-hero__inner,
-.kb-content,
-.kb-footer__inner {
-  max-width: 1400px;
-} */
 
-/*
 .kb-article ul + h4,
 .kb-article ol + h4 {
   margin-top: 24px !important;
-} */
+}
+
+/* PC（961px 以上）だけ適用する */
+@media (min-width: 961px) {
+  .kb-hero__inner,
+  .kb-content,
+  .kb-footer__inner {
+    max-width: 1400px;
+  }
+}
