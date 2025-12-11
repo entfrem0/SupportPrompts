@@ -396,3 +396,9 @@ table thead {
     background: #0a111d;
   }
 }
+
+@media (max-width: 960px) {
+  .kb-sidebar__card {
+    width: 100%;
+  }
+}
