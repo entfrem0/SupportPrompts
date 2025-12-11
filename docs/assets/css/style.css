@@ -404,14 +404,16 @@ table thead {
   margin-top: 24px !important;
 }
 
-@media (max-width: 960px) {
-  .kb-hero__inner,
-  .kb-content,
-  .kb-footer__inner {
-    max-width: 100% !important;
-  }
-
+/* PC 用（960px 以上） */
+@media (min-width: 960px) {
   .kb-content {
-    grid-template-columns: 1fr !important;
+    max-width: 1400px;
+  }
+}
+
+/* スマホ用（960px 以下） */
+@media (max-width: 960px) {
+  .kb-content {
+    max-width: 100% !important;
   }
 }
