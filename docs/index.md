@@ -12,6 +12,9 @@ sidebar_title: 注目の記事
 - [日付／日時データ項目の更新]({{ '/date_datetime/knowledge/' | relative_url }})
 - [日付／日時データ項目の更新のサンプル]({{ '/date_datetime/example/' | relative_url }})
 
+[日付／日時データ項目の更新]({{ '/date_datetime/knowledge/' | relative_url }})/
+└── [日付／日時データ項目の更新のサンプル]({{ '/date_datetime/example/' | relative_url }})
+
 ## はじめに
 
 このナレッジベースでは、データ更新工程の設定例や EL 式の作り方を、実際の問い合わせに沿って紹介します。カテゴリごとに関連記事をまとめ、Zendesk のヘルプセンターに近い読みやすさを目指しています。
