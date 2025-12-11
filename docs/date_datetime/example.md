@@ -12,8 +12,6 @@ lead: よくある質問をベースに、日付／日時データ項目の更�
 > 
 > よくある質問をもとにしたサンプルは [こちらのページ](https://questetra.github.io/SupportPrompts/date_datetime/example/) から確認できます。
 
----
-
 
 #### 【質問1】
 
