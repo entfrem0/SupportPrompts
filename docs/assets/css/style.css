@@ -274,3 +274,17 @@ table td {
     --kb-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
   }
 }
+
+/* スマホでは余白を減らす（横スクロール防止 & 枠の正常化） 追加部分*/
+@media (max-width: 960px) {
+
+  /* コンテンツ外枠の余白を削る */
+  .kb-content {
+    padding: 0 12px !important;
+  }
+
+  /* 本文カードの左右も縮める */
+  .kb-article {
+    padding: 24px 16px !important;
+  }
+}
