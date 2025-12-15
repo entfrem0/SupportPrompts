@@ -28,6 +28,7 @@ sections:
   date_datetime:
     title: 日付／日時データ更新
     url: /date_datetime/knowledge/
+    url: /date_datetime/example/
   date_datetime_sample:
     title: 日付／日時データ更新のサンプル
     url: /date_datetime/example/
