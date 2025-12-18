@@ -12,6 +12,7 @@ lead: よくある質問をベースに、日付／日時データ項目の更�
 > このページでは、日付型／日時型データ項目の更新手順や EL 式の具体例をまとめたサンプルを紹介しています。
 > 
 > よくある質問をもとにしたサンプルは [こちらのページ](https://questetra.github.io/SupportPrompts/date_datetime/example/) から確認できます。
+> サポートページ 「R2271: EL式による日付日時としての出力（データ設定式）」は[こちら](https://questetra.zendesk.com/hc/ja/articles/360024292672-R2271)
 
 
 #### 【質問1】
