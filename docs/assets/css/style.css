@@ -452,3 +452,61 @@ table thead {
   word-break: break-all;
   overflow-wrap: anywhere;
 }
+
+/* 文末に追加 */
+.main-categories {
+  background: var(--kb-surface);
+  border: 1px solid var(--kb-border);
+  border-radius: 16px;
+  box-shadow: var(--kb-shadow);
+  padding: 20px;
+  margin-bottom: 32px;
+}
+
+.main-categories h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: var(--kb-accent-dark);
+}
+
+.main-categories ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.main-categories ul > li {
+  margin-bottom: 12px;
+}
+
+.main-categories strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--kb-text);
+}
+
+.main-categories li ul {
+  padding-left: 12px;
+  margin-top: 4px;
+}
+
+.main-categories li ul li {
+  margin-bottom: 4px;
+}
+
+/* スマホ対応 */
+@media (max-width: 640px) {
+  .main-categories {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  .main-categories h2 {
+    font-size: 16px;
+  }
+  .main-categories li ul {
+    padding-left: 8px;
+  }
+}
