@@ -91,18 +91,23 @@
         <section class="main-categories">
   <h2>主要カテゴリの記事</h2>
   <ul>
-    {% for section_key in site.sections %}
-      <li>
-        <strong>{{ site.sections[section_key].title }}</strong>
-        <ul>
-          {% assign pages_in_section = site.pages | where_exp:"p","p.section == section_key" | sort:"nav_order" %}
-          {% for p in pages_in_section %}
-            <li>
-              <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </li>
+    {% assign all_pages = site.pages | sort: "nav_order" %}
+    {% assign sections = all_pages | map: "section" | uniq %}
+
+    {% for sec in sections %}
+      {% if sec %}
+        <li>
+          <strong>{{ sec }}</strong>
+          <ul>
+            {% assign pages_in_section = all_pages | where_exp:"p","p.section == sec" %}
+            {% for p in pages_in_section %}
+              <li>
+                <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </section>
