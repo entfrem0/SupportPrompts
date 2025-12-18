@@ -456,9 +456,6 @@ table thead {
 /* 文末に追加 */
 .main-categories {
   background: var(--kb-surface);
-  border: 1px solid var(--kb-border);
-  border-radius: 16px;
-  box-shadow: var(--kb-shadow);
   padding: 20px;
   margin-bottom: 32px;
 }
