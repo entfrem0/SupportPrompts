@@ -121,6 +121,13 @@
       {% endfor %}
     </ul>
   </section>
+
+  <h3>DEBUG: pages in section</h3>
+<ul>
+{% for p in site.pages %}
+  <li>{{ p.url }} / section={{ p.section | default: 'nil' }}</li>
+{% endfor %}
+</ul>
       </article>
     </div>
   </main>
