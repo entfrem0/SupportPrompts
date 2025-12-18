@@ -1,5 +1,5 @@
 ---
-title: サポートガイト集
+title: サポートガイド集
 short_title: トップ
 lead: Questetra ワークフローのデータ更新工程の設定例や EL 式の作り方を、カテゴリごとにまとめています。
 layout: default
