@@ -88,13 +88,24 @@
       <article class="kb-article">
         {{ content }}
 
-        <h3>DEBUG: pages_in_section</h3>
-<ul>
-{% assign pages_in_section = site.pages | where_exp:"p","p.section == 'date_datetime'" %}
-{% for p in pages_in_section %}
-  <li>title="{{ p.title | default: 'no title' }}" url="{{ p.url }}" section="{{ p.section | default: 'nil' }}"</li>
-{% endfor %}
-</ul>
+        <section class="main-categories">
+  <h2>主要カテゴリの記事</h2>
+  <ul>
+    {% for section_key in site.sections %}
+      <li>
+        <strong>{{ site.sections[section_key].title }}</strong>
+        <ul>
+          {% assign pages_in_section = site.pages | where_exp:"p","p.section == section_key" | sort:"nav_order" %}
+          {% for p in pages_in_section %}
+            <li>
+              <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
 
       </article>
     </div>
