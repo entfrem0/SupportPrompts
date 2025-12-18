@@ -88,31 +88,11 @@
       <article class="kb-article">
         {{ content }}
 
-        <section class="main-categories">
-  <h2>主要カテゴリの記事</h2>
-  <ul>
-    {% for section_key in site.sections %}
-      <li>
-        <strong>
-          <a href="{{ site.sections[section_key].url | relative_url }}">
-            {{ site.sections[section_key].title }}
-          </a>
-        </strong>
         <ul>
-          {% assign pages_in_section = site.pages
-            | where_exp:"p","p.section == section_key"
-            | sort:"nav_order"
-          %}
-          {% for page in pages_in_section %}
-            <li>
-              <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </li>
-    {% endfor %}
-  </ul>
-</section>
+{% for p in pages_in_section %}
+  <li>{{ p.title | default: "no title" }} : {{ p.url }}</li>
+{% endfor %}
+</ul>
 
       </article>
     </div>
