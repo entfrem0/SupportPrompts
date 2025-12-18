@@ -88,9 +88,11 @@
       <article class="kb-article">
         {{ content }}
 
-        <ul>
+        <h3>DEBUG: pages_in_section</h3>
+<ul>
+{% assign pages_in_section = site.pages | where_exp:"p","p.section == 'date_datetime'" %}
 {% for p in pages_in_section %}
-  <li>{{ p.title | default: "no title" }} : {{ p.url }}</li>
+  <li>title="{{ p.title | default: 'no title' }}" url="{{ p.url }}" section="{{ p.section | default: 'nil' }}"</li>
 {% endfor %}
 </ul>
 
