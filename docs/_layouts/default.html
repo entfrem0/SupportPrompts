@@ -86,31 +86,35 @@
       </aside>
 
       <article class="kb-article">
-        {{ content }}
 
+      {% if page.url == "/" %}
         <section class="main-categories">
-  <h2>主要カテゴリの記事</h2>
-  <ul>
-    {% assign all_pages = site.pages | sort: "nav_order" %}
-    {% assign sections = all_pages | map: "section" | uniq %}
+          <h2>主要カテゴリの記事</h2>
+          <ul>
+            {% assign all_pages = site.pages | sort: "nav_order" %}
+            {% assign sections = all_pages | map: "section" | uniq %}
 
-    {% for sec in sections %}
-      {% if sec %}
-        <li>
+            {% for sec in sections %}
+            {% if sec %}
+          <li>
+
           <strong>{{ sec }}</strong>
           <ul>
             {% assign pages_in_section = all_pages | where_exp:"p","p.section == sec" %}
             {% for p in pages_in_section %}
-              <li>
-                <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-              </li>
+          <li>
+            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+          </li>
             {% endfor %}
           </ul>
-        </li>
+          </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </section>
       {% endif %}
-    {% endfor %}
-  </ul>
-</section>
+
+        {{ content }}
 
       </article>
     </div>
