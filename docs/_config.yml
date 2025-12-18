@@ -28,13 +28,9 @@ sections:
   date_datetime:
     title: 日付／日時データ更新
     url: /date_datetime/knowledge/
-  date_datetime_sample:
-    title: 日付／日時データ更新のサンプル
-    url: /date_datetime/example/
 
 section_labels:
   date_datetime: 日付／日時データ更新
-  date_datetime_sample: 日付／日時データ更新のサンプル
 
 kramdown:
   input: GFM

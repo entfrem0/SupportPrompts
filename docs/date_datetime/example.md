@@ -1,5 +1,6 @@
 ---
 title: 日付型／日時型データ項目を更新するサンプル
+section: date_datetime
 layout: default
 date: 2025-10-14
 nav_order: 2

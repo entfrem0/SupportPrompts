@@ -4,7 +4,7 @@ short_title: トップ
 lead: Questetra ワークフローのデータ更新工程の設定例や EL 式の作り方を、カテゴリごとにまとめています。
 layout: default
 nav_order: 0
-sidebar_title: 注目の記事
+sidebar_title: 関連記事
 ---
 
 ## 主要カテゴリ

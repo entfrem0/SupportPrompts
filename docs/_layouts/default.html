@@ -63,7 +63,7 @@
       {% assign siblings = site.pages | where: "dir", page.dir | sort: "nav_order" %}
       <aside class="kb-sidebar">
         <div class="kb-sidebar__card">
-          <h2 class="kb-sidebar__title">{{ page.sidebar_title | default: '関連記事' }}</h2>
+          <h2 class="kb-sidebar__title">{{ page.sidebar_title }}</h2>
           <ul class="kb-sidebar__list">
             {% for sibling in siblings %}
               {% if sibling.title and sibling.url != page.url %}

@@ -1,6 +1,7 @@
 ---
 title: 日付型／日時型データ項目を更新する
 layout: default
+section: date_datetime
 date: 2025-10-14
 nav_order: 1
 lead: 日付・日時データを活用するための仕様と代表的な EL 式の使い方を整理しました。
