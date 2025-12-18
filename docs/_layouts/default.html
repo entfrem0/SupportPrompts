@@ -60,7 +60,7 @@
     </section>
 
     <div class="kb-content">
-      {% assign siblings = site.pages | where: "dir", page.dir | sort: "nav_order" %}
+      {% assign siblings = site.pages | where: "section", page.section | sort: "nav_order" %}
       <aside class="kb-sidebar">
         <div class="kb-sidebar__card">
           <h2 class="kb-sidebar__title">{{ page.sidebar_title }}</h2>
