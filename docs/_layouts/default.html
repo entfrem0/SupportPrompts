@@ -62,16 +62,6 @@
     <div class="kb-content">
       {% assign siblings = site.pages | where: "section", page.section | sort: "nav_order" %}
 
-
-<!-- DEBUG: same section pages -->
-<ul style="background:#fee; padding:1em; font-size:12px;">
-{% for p in site.pages %}
-  {% if p.section == page.section %}
-    <li>{{ p.url }} / section={{ p.section }}</li>
-  {% endif %}
-{% endfor %}
-</ul>
-
       <aside class="kb-sidebar">
         <div class="kb-sidebar__card">
           <h2 class="kb-sidebar__title">{{ page.sidebar_title }}</h2>
