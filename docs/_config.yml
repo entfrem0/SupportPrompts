@@ -27,6 +27,7 @@ navigation:
 sections:
   date_datetime:
     title: 日付／日時データ更新
+    url: /date_datetime/knowledge/
 
 kramdown:
   input: GFM
