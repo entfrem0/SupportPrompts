@@ -21,8 +21,6 @@ defaults:
 navigation:
   - title: ガイド集
     url: /
-  - title: 日付／日時データ更新
-    url: /date_datetime/knowledge/
 
 sections:
   date_datetime:
