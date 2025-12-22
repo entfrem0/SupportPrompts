@@ -115,20 +115,20 @@
 </section>
 {% endif %}
 
-  {% unless page.url == "/" %}
+{% unless page.url == "/" %}
 <aside class="kb-sidebar kb-sidebar--right">
-    <div class="kb-sidebar__card">
-      <h2 class="kb-sidebar__title">目次</h2>
-      <ul class="kb-toc">
-        {% for heading in content | toc %}
-          <li class="kb-toc__item">
-            <a href="#{{ heading.id }}">{{ heading.text }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </aside>
-  {% endunless %} 
+  <div class="kb-sidebar__card">
+    <h2 class="kb-sidebar__title">目次</h2>
+    <ul class="kb-toc">
+      {% for heading in content | toc %}
+      <li class="kb-toc__item">
+        <a href="#{{ heading.id }}">{{ heading.text }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</aside>
+{% endunless %}
 
         {{ content }}
 

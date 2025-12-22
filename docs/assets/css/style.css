@@ -452,3 +452,31 @@ table thead {
   word-break: break-all;
   overflow-wrap: anywhere;
 }
+
+/* 右サイドバー専用 */
+.kb-sidebar--right {
+  width: 200px;        /* 幅 */
+  position: sticky;    /* スクロールしても固定 */
+  top: 1rem;           /* 上部余白 */
+  float: right;        /* 右側に寄せる */
+}
+
+/* TOCリスト */
+.kb-toc {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.kb-toc__item {
+  margin-bottom: 0.5rem;
+}
+
+.kb-toc__item a {
+  text-decoration: none;
+  color: #007acc;
+}
+
+.kb-toc__item a:hover {
+  text-decoration: underline;
+}
