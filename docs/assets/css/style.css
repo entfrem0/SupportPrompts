@@ -453,15 +453,32 @@ table thead {
   overflow-wrap: anywhere;
 }
 
-/* 右サイドバー専用 */
-.kb-sidebar--right {
-  width: 200px;        /* 幅 */
-  position: sticky;    /* スクロールしても固定 */
-  top: 1rem;           /* 上部余白 */
-  float: right;        /* 右側に寄せる */
+
+/* kb-content を3カラムに */
+.kb-content {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px; /* 左 / 中央 / 右 */
+  gap: 1.5rem;
 }
 
-/* TOCリスト */
+/* 左サイドバー */
+.kb-sidebar--left {
+  grid-column: 1;
+}
+
+/* メイン記事 */
+.kb-article {
+  grid-column: 2;
+}
+
+/* 右サイドバー */
+.kb-sidebar--right {
+  grid-column: 3;
+  position: sticky; /* スクロール追従 */
+  top: 1rem;
+}
+
+/* TOCリストの最小装飾 */
 .kb-toc {
   list-style: none;
   padding-left: 0;

@@ -60,80 +60,52 @@
     </section>
 
     <div class="kb-content">
-      {% assign siblings = site.pages | where: "section", page.section | sort: "nav_order" %}
 
-      <aside class="kb-sidebar">
-        <div class="kb-sidebar__card">
-          <h2 class="kb-sidebar__title">{{ page.sidebar_title }}</h2>
-          <ul class="kb-sidebar__list">
-            {% for sibling in siblings %}
-              {% if sibling.title and sibling.url != page.url %}
-                <li class="kb-sidebar__item">
-                  <a class="kb-sidebar__link" href="{{ sibling.url | relative_url }}">{{ sibling.title }}</a>
-                </li>
-              {% endif %}
-            {% endfor %}
+  <!-- 左サイドバー -->
+  <aside class="kb-sidebar kb-sidebar--left">
+    {% assign siblings = site.pages | where: "section", page.section | sort: "nav_order" %}
+    <div class="kb-sidebar__card">
+      <h2 class="kb-sidebar__title">{{ page.sidebar_title }}</h2>
+      <ul class="kb-sidebar__list">
+        {% for sibling in siblings %}
+          {% if sibling.title and sibling.url != page.url %}
             <li class="kb-sidebar__item">
-              <span class="kb-sidebar__current">{{ page.title }}</span>
+              <a class="kb-sidebar__link" href="{{ sibling.url | relative_url }}">{{ sibling.title }}</a>
             </li>
-          </ul>
-        </div>
-        {% if page.updated %}
-          <p class="kb-sidebar__meta">最終更新: <time datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | date: "%Y-%m-%d" }}</time></p>
-        {% elsif page.date %}
-          <p class="kb-sidebar__meta">公開日: <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></p>
-        {% endif %}
-      </aside>
-
-      <article class="kb-article">
-
-      {% if page.url == "/" %}
-<section class="main-categories">
-  <h2>主要カテゴリの記事</h2>
-  <ul>
-    {% assign all_pages = site.pages | sort: "nav_order" %}
-    {% assign sections = all_pages | map: "section" | uniq %}
-
-    {% for sec in sections %}
-      {% if sec %}
-      <li>
-        <strong>
-          {{ site.sections[sec].title | default: sec }}
-        </strong>
-        <ul>
-          {% assign pages_in_section = all_pages | where_exp:"p","p.section == sec" %}
-          {% for p in pages_in_section %}
-          <li>
-            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</section>
-{% endif %}
-
-{% unless page.url == "/" %}
-<aside class="kb-sidebar kb-sidebar--right">
-  <div class="kb-sidebar__card">
-    <h2 class="kb-sidebar__title">目次</h2>
-    <ul class="kb-toc">
-      {% for heading in content | toc %}
-      <li class="kb-toc__item">
-        <a href="#{{ heading.id }}">{{ heading.text }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</aside>
-{% endunless %}
-
-        {{ content }}
-
-      </article>
+          {% endif %}
+        {% endfor %}
+        {% unless page.url == "/" %}
+        <li class="kb-sidebar__item">
+          <span class="kb-sidebar__current">{{ page.title }}</span>
+        </li>
+        {% endunless %}
+      </ul>
     </div>
+  </aside>
+
+  <!-- メイン記事 -->
+  <article class="kb-article">
+    {{ content }}
+  </article>
+
+  <!-- 右サイドバー（目次） -->
+  {% unless page.url == "/" %}
+  <aside class="kb-sidebar kb-sidebar--right">
+    <div class="kb-sidebar__card">
+      <h2 class="kb-sidebar__title">目次</h2>
+      <ul class="kb-toc">
+        {% for heading in content | toc %}
+          <li class="kb-toc__item">
+            <a href="#{{ heading.id }}">{{ heading.text }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
+  {% endunless %}
+
+</div>
+
   </main>
 
   <footer class="kb-footer">
