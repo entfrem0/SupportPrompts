@@ -454,7 +454,7 @@ table thead {
 }
 
 
-/* kb-content を3カラムに */
+/* 3カラムレイアウト（PC） */
 .kb-content {
   display: grid;
   grid-template-columns: 200px 1fr 200px; /* 左 / 中央 / 右 */
@@ -474,11 +474,11 @@ table thead {
 /* 右サイドバー */
 .kb-sidebar--right {
   grid-column: 3;
-  position: sticky; /* スクロール追従 */
+  position: sticky;
   top: 1rem;
 }
 
-/* TOCリストの最小装飾 */
+/* TOCリスト装飾 */
 .kb-toc {
   list-style: none;
   padding-left: 0;
@@ -496,4 +496,26 @@ table thead {
 
 .kb-toc__item a:hover {
   text-decoration: underline;
+}
+
+/* --- スマホ対応: 右サイドバーを記事の前に --- */
+@media (max-width: 768px) {
+  .kb-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kb-sidebar--left {
+    order: 1; /* 左サイドバー */
+  }
+
+  .kb-sidebar--right {
+    order: 2; /* 右サイドバーを2番目 */
+    position: relative; /* sticky解除 */
+    top: auto;
+  }
+
+  .kb-article {
+    order: 3; /* 記事本文を最後 */
+  }
 }
