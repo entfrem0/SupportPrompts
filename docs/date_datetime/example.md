@@ -19,7 +19,8 @@ lead: よくある質問をベースに、日付／日時データ項目の更�
 
 ### 【質問1】
 
-``` ワークフローアプリには、以下のデータ項目があります。
+```
+ワークフローアプリには、以下のデータ項目があります。
 
 ・申請日
 ・日付型
@@ -116,7 +117,7 @@ EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
 締め切りをプロセス開始後一週間後の0時に設定したい。
 ```
 
-説明：processInstanceStartDatetime、#today、#now のようなシステム提供値を使う場合に限り、セーフナビゲーション演算子（?.）は不要です。
+説明：processInstanceStartDatetime、#today、#now のようなシステム設定書式を使う場合に限り、セーフナビゲーション演算子（?.）は不要です。
 
 ### 【回答4】
 
