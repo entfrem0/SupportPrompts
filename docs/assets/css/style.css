@@ -452,13 +452,3 @@ table thead {
   word-break: break-all;
   overflow-wrap: anywhere;
 }
-
-.kb-content--three-column {
-  display: grid;
-  grid-template-columns: 200px 1fr 200px;
-  gap: 1.5rem;
-}
-
-.kb-sidebar--left { grid-column: 1; }
-.kb-article { grid-column: 2; }
-.kb-sidebar--right { grid-column: 3; }
