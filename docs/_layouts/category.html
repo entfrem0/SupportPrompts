@@ -1,21 +1,20 @@
----
-layout: default
----
+<!DOCTYPE html>
+
 
 {% assign section_key = page.section %}
 {% assign pages_in_section = site.pages | where: "section", section_key | sort: "nav_order" %}
 
-<section class="kb-category-index">
-  {% if page.intro %}
-    <div class="kb-category-index__intro">
-      {{ page.intro | markdownify }}
-    </div>
-  {% endif %}
+{% if page.intro %}
+  <div class="kb-category-index__intro">
+    {{ page.intro | markdownify }}
+  </div>
+{% endif %}
 
+<section class="kb-category-index">
   <h2>このカテゴリの記事</h2>
   <ul class="kb-category-index__list">
     {% for p in pages_in_section %}
-      {% if p.url != page.url and p.title %}
+      {% if p.title and p.url != page.url and p.name != 'index.md' and p.name != 'index.html' %}
         <li class="kb-category-index__item">
           <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
           {% if p.lead %}
@@ -26,3 +25,4 @@ layout: default
     {% endfor %}
   </ul>
 </section>
+
