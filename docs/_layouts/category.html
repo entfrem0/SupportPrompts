@@ -84,7 +84,7 @@
               {%- comment -%}
               カテゴリは /{section}/ の index を優先して拾う（無ければそのカテゴリ内の最初のページ）
               {%- endcomment -%}
-              {% assign sec_index = all_pages | where_exp:"p","p.section == sec_key and (p.name == 'index.md' or p.name == 'index.html')" | first %}
+              {% assign sec_index = all_pages | where_exp: "p","p.section == sec_key and (p.name == 'index.md' or p.name == 'index.html')" | first %}
               {% assign sec_pages = all_pages | where: "section", sec_key | sort: "nav_order" %}
               {% assign sec_home = sec_index | default: sec_pages | first %}
 
