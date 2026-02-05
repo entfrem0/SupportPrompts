@@ -224,3 +224,37 @@ thead{background:rgba(0,161,198,.08); color:var(--muted)}
   .kb-article{padding:32px 24px}
   .kb-sidebar__card{padding:24px 10px}
 }
+
+/* ===== mobile overflow killer ===== */
+.kb-article {
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* 画像・埋め込みがはみ出すのを防ぐ */
+.kb-article img,
+.kb-article video,
+.kb-article iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 長いURL/英数字が原因の横はみ出し対策（本文全体に効かせる） */
+.kb-article p,
+.kb-article li {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* テーブルが一番はみ出しやすい：横スクロール化 */
+.kb-article table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* code/pre は既に overflow-x:auto なので念のため幅制限 */
+.kb-article pre {
+  max-width: 100%;
+}
