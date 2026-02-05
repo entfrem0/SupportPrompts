@@ -87,7 +87,9 @@
 
       <article class="kb-article">
 
-      {% if page.url == "/" %}
+        {{ content }}
+
+             {% if page.url == "/" %}
 <section class="main-categories">
   <h2>主要カテゴリの記事</h2>
   <ul>
@@ -114,8 +116,6 @@
   </ul>
 </section>
 {% endif %}
-
-        {{ content }}
 
       </article>
     </div>
