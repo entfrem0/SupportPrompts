@@ -1,28 +1,175 @@
 <!DOCTYPE html>
-
-
-{% assign section_key = page.section %}
-{% assign pages_in_section = site.pages | where: "section", section_key | sort: "nav_order" %}
-
-{% if page.intro %}
-  <div class="kb-category-index__intro">
-    {{ page.intro | markdownify }}
-  </div>
-{% endif %}
-
-<section class="kb-category-index">
-  <h2>このカテゴリの記事</h2>
-  <ul class="kb-category-index__list">
-    {% for p in pages_in_section %}
-      {% if p.title and p.url != page.url and p.name != 'index.md' and p.name != 'index.html' %}
-        <li class="kb-category-index__item">
-          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-          {% if p.lead %}
-            <div class="kb-category-index__lead">{{ p.lead }}</div>
-          {% endif %}
-        </li>
+<html lang="{{ page.lang | default: site.lang | default: 'ja' }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
+  </title>
+  {% assign description = page.excerpt | default: page.description | default: site.description %}
+  <meta name="description" content="{{ description | strip_html | strip_newlines | truncate: 160 }}">
+  {% if site.google_fonts %}
+    <link rel="stylesheet" href="{{ site.google_fonts }}">
+  {% endif %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="kb-header">
+    <div class="kb-header__inner">
+      <div class="kb-header__branding">
+        <a class="kb-header__brand" href="{{ '/' | relative_url }}">
+          {{ site.title }}
+        </a>
+        <p class="kb-header__tagline">{{ site.description }}</p>
+      </div>
+      {% if site.navigation %}
+      <nav class="kb-header__nav" aria-label="サイト内メニュー">
+        {% for item in site.navigation %}
+          {% assign normalized_page = page.url | append: '/' | replace: '//', '/' %}
+          {% assign normalized_nav = item.url | append: '/' | replace: '//', '/' %}
+          <a class="kb-header__nav-link{% if normalized_page == normalized_nav %} is-active{% endif %}" href="{{ item.url | relative_url }}">
+            {{ item.title }}
+          </a>
+        {% endfor %}
+      </nav>
       {% endif %}
-    {% endfor %}
-  </ul>
-</section>
+    </div>
+  </header>
 
+  <main class="kb-main" id="main-content">
+    <section class="kb-hero">
+      <div class="kb-hero__inner">
+        {% assign path_parts = page.url | split: '/' %}
+        {% assign section_key = page.section | default: path_parts[1] | default: '' %}
+        {% assign section_meta = site.sections[section_key] %}
+        <nav class="kb-breadcrumb" aria-label="パンくずリスト">
+          <a href="{{ '/' | relative_url }}">ホーム</a>
+          {% if section_meta %}
+            <span aria-hidden="true">›</span>
+            <a href="{{ section_meta.url | relative_url }}">{{ section_meta.title }}</a>
+          {% endif %}
+          <span aria-hidden="true">›</span>
+          <span class="kb-breadcrumb__current">{{ page.short_title | default: page.title }}</span>
+        </nav>
+        <h1 class="kb-hero__title">{{ page.title }}</h1>
+        {% if page.lead %}
+          <p class="kb-hero__lead">{{ page.lead }}</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <div class="kb-content">
+      {% assign all_pages = site.pages | sort: "nav_order" %}
+      {% assign current_section = section_key | default: page.section %}
+
+      {%- comment -%}
+      siblings: 同じカテゴリ内のページ（カテゴリindexは除外）
+      {%- endcomment -%}
+      {% assign siblings = all_pages
+        | where: "section", current_section
+        | where_exp: "p", "p.name != 'index.md' and p.name != 'index.html'"
+        | sort: "nav_order"
+      %}
+
+      <aside class="kb-sidebar">
+        <!-- 主要カテゴリ -->
+        {% if site.sections %}
+        <div class="kb-sidebar__card kb-sidebar__card--categories">
+          <h2 class="kb-sidebar__title">主要カテゴリ</h2>
+          <ul class="kb-sidebar__list">
+            {% for sec in site.sections %}
+              {% assign sec_key = sec[0] %}
+              {% assign sec_meta = sec[1] %}
+
+              {%- comment -%}
+              カテゴリは /{section}/ の index を優先して拾う（無ければそのカテゴリ内の最初のページ）
+              {%- endcomment -%}
+              {% assign sec_index = all_pages | where_exp:"p","p.section == sec_key and (p.name == 'index.md' or p.name == 'index.html')" | first %}
+              {% assign sec_pages = all_pages | where: "section", sec_key | sort: "nav_order" %}
+              {% assign sec_home = sec_index | default: sec_pages | first %}
+
+              {% if sec_home %}
+              <li class="kb-sidebar__item">
+                <a class="kb-sidebar__link{% if sec_key == current_section %} is-active{% endif %}"
+                   href="{{ sec_home.url | relative_url }}">
+                  {{ sec_meta.title | default: sec_key }}
+                </a>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
+        <!-- 同じカテゴリ内（関連記事） -->
+        <div class="kb-sidebar__card">
+          <h2 class="kb-sidebar__title">{{ page.sidebar_title | default: "関連記事" }}</h2>
+          <ul class="kb-sidebar__list">
+            {% for sibling in siblings %}
+              {% if sibling.title and sibling.url != page.url %}
+                <li class="kb-sidebar__item">
+                  <a class="kb-sidebar__link" href="{{ sibling.url | relative_url }}">{{ sibling.title }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+            <li class="kb-sidebar__item">
+              <span class="kb-sidebar__current">{{ page.title }}</span>
+            </li>
+          </ul>
+        </div>
+
+        {% if page.updated %}
+          <p class="kb-sidebar__meta">最終更新: <time datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | date: "%Y-%m-%d" }}</time></p>
+        {% elsif page.date %}
+          <p class="kb-sidebar__meta">公開日: <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time></p>
+        {% endif %}
+      </aside>
+
+      <article class="kb-article">
+        {%- comment -%}
+        カテゴリページの本文（intro）を表示したい場合のみ出す
+        intro は front matter に YAML の | で書いたMarkdownを想定
+        {%- endcomment -%}
+        {% if page.intro %}
+          <div class="kb-category-index__intro">
+            {{ page.intro | markdownify }}
+          </div>
+        {% endif %}
+
+        {%- comment -%}
+        カテゴリ内ページ一覧（カテゴリindex自身は除外）
+        {%- endcomment -%}
+        {% assign pages_in_section = all_pages
+          | where: "section", current_section
+          | where_exp: "p", "p.name != 'index.md' and p.name != 'index.html'"
+          | sort: "nav_order"
+        %}
+
+        <section class="kb-category-index">
+          <h2>このカテゴリの記事</h2>
+          <ul class="kb-category-index__list">
+            {% for p in pages_in_section %}
+              {% if p.title %}
+                <li class="kb-category-index__item">
+                  <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+                  {% if p.lead %}
+                    <div class="kb-category-index__lead">{{ p.lead }}</div>
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="kb-footer">
+    <div class="kb-footer__inner">
+      <p class="kb-footer__brand">{{ site.title }}</p>
+      <p class="kb-footer__meta">© {{ 'now' | date: '%Y' }} Questetra Support Prompts</p>
+    </div>
+  </footer>
+</body>
+</html>
