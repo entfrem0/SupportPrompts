@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+{% assign section_key = page.section %}
+{% assign pages_in_section = site.pages | where: "section", section_key | sort: "nav_order" %}
+
+<section class="kb-category-index">
+  {% if page.intro %}
+    <div class="kb-category-index__intro">
+      {{ page.intro | markdownify }}
+    </div>
+  {% endif %}
+
+  <h2>このカテゴリの記事</h2>
+  <ul class="kb-category-index__list">
+    {% for p in pages_in_section %}
+      {% if p.url != page.url and p.title %}
+        <li class="kb-category-index__item">
+          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+          {% if p.lead %}
+            <div class="kb-category-index__lead">{{ p.lead }}</div>
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>
