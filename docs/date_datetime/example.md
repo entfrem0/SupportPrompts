@@ -47,8 +47,6 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 設定対象のデータ項目: q_deadline 日付型
 ```
 
----
-
 ### 【前提2】
 
 ```
@@ -73,7 +71,6 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 「契約開始日から3営業日後」の「営業日」を計算する関数は存在しない。
 ```
 
----
 
 ### 【前提3】
 
@@ -102,8 +99,6 @@ EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
 設定対象のデータ項目: q_repair_due 日時型
 ```
 
----
-
 ### 【前提4】
 
 ```
@@ -128,8 +123,6 @@ processInstanceStartDatetime 日時型（プロセス開始日時）
 設定対象のデータ項目: q_duetime
 ```
 
----
-
 ### 【前提5】
 
 ```
@@ -151,8 +144,6 @@ EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
 
 設定対象のデータ項目: q_start_date 日付型
 ```
-
----
 
 ### 【前提6】
 
@@ -182,8 +173,6 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 ```
 
 説明：入力が日付型の場合、.getFirstTimeInDate() を使って日時型に変換する必要があります。
-
---- 
 
 ### 【前提7】
 
@@ -216,8 +205,6 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 ・スクリプト処理でクライアント/サーバーからユーザーのタイムゾーンを取得し、`q_now_utc` をローカルに変換して次回0:00を算出し、`q_next_local_midnight` に設定する。
 ・代替案として、数値型のUTCオフセット項目（例：`q_utc_offset_minutes` 数値型）を追加し、その分だけ加減算してローカル0:00相当を近似計算する（ただしDST切替時には誤差が生じ得る）。
 ```
-
----
 
 ### 【前提8】
 
