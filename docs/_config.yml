@@ -25,6 +25,7 @@ navigation:
 sections:
   date_datetime:
     title: 日付／日時データ更新
+    description: 日付型・日時型データの更新手順と代表的なEL式サンプル
 
 kramdown:
   input: GFM
