@@ -37,7 +37,7 @@ lead: よくある質問をベースに、日付／日時データ項目の更�
 説明：日付型データを別の日付型に変換する処理です。他のメソッドについても同様の手順で対応します。
 
 
-### 【記述例】
+#### 【記述例】
 
 ```
 EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
@@ -65,7 +65,7 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 
 説明：この例は、ユーザーの要望が実現できない場合のパターンを示しています。
 
-### 【記述例】
+#### 【記述例】
 
 ```
 「契約開始日から3営業日後」の「営業日」を計算する関数は存在しない。
@@ -91,7 +91,7 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
  - 更新対象が日付型の場合、日時型に変換することで時刻の操作が可能になります。
  - ユーザーの指定したデータ型が適切でないと判断される場合には、改善案も提示します。
 
-### 【記述例】
+#### 【記述例】
 
 ```
 EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
@@ -113,7 +113,7 @@ EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
 
 説明：processInstanceStartDatetime、#today、#now のようなシステム設定書式を使う場合に限り、セーフナビゲーション演算子（?.）は不要です。
 
-### 【記述例】
+#### 【記述例】
 
 ```
 EL式：processInstanceStartDatetime.addDays(7).getFirstTimeInDate()
@@ -137,7 +137,7 @@ processInstanceStartDatetime 日時型（プロセス開始日時）
 
 説明：数日を加算して、現在の日付が金曜日より前か後かを判断する
 
-### 【記述例】
+#### 【記述例】
 
 ```
 EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
@@ -164,7 +164,7 @@ EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
  - この例では、日付型と日時型の相互変換および、それぞれに適用できるメソッドについて説明しています。
  - 要望に時間情報が含まれているため、設定対象のデータ項目は日時型である必要があります。
 
-### 【記述例】
+#### 【記述例】
 
 ```
 EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.addHours(10)
@@ -191,7 +191,7 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 ```
 
 
-### 【記述例】
+#### 【記述例】
 
 ```
 この要件は、単体のEL式（データ更新のEL式）のみでは実現できない。理由：
@@ -232,7 +232,7 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 
 説明：比較演算子と三項演算子を利用する例。
 
-### 【記述例】
+#### 【記述例】
 
 ```
 EL式：#q_date1 >= #q_date2 && #q_date1 >= #q_date3 ? #q_date1?.addDays(7) : (#q_date2 >= #q_date3 ? #q_date2?.addDays(7) : #q_date3?.addDays(7))
