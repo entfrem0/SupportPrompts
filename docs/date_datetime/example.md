@@ -14,9 +14,9 @@ lead: よくある質問をベースに、日付／日時データ項目の更�
 > サポートページ 「R2271: EL式による日付日時としての出力（データ設定式）」は[こちら](https://questetra.zendesk.com/hc/ja/articles/360024292672-R2271)
 
 
-ここでは【前提】は前提と実現したい処理内容、【記述例】はEL式の記述例を意味します。
+ここでは前提と実現したい処理内容とEL式の記述例を掲載します。
 
-### 【前提1】
+### 【日付型：申請日から週明けを求めたい】
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -37,7 +37,7 @@ lead: よくある質問をベースに、日付／日時データ項目の更�
 説明：日付型データを別の日付型に変換する処理です。他のメソッドについても同様の手順で対応します。
 
 
-### 【記述例1】
+### 【記述例】
 
 ```
 EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
@@ -47,7 +47,7 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 設定対象のデータ項目: q_deadline 日付型
 ```
 
-### 【前提2】
+### 【日付型：営業日計算をしたい】
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -65,14 +65,14 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 
 説明：この例は、ユーザーの要望が実現できない場合のパターンを示しています。
 
-### 【記述例2】
+### 【記述例】
 
 ```
 「契約開始日から3営業日後」の「営業日」を計算する関数は存在しない。
 ```
 
 
-### 【前提3】
+### 【日時型：日数＋時刻（18時）を指定したい】
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -91,7 +91,7 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
  - 更新対象が日付型の場合、日時型に変換することで時刻の操作が可能になります。
  - ユーザーの指定したデータ型が適切でないと判断される場合には、改善案も提示します。
 
-### 【記述例3】
+### 【記述例】
 
 ```
 EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
@@ -99,7 +99,7 @@ EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
 設定対象のデータ項目: q_repair_due 日時型
 ```
 
-### 【前提4】
+### 【システム日時から計算したい】
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -113,7 +113,7 @@ EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
 
 説明：processInstanceStartDatetime、#today、#now のようなシステム設定書式を使う場合に限り、セーフナビゲーション演算子（?.）は不要です。
 
-### 【記述例4】
+### 【記述例】
 
 ```
 EL式：processInstanceStartDatetime.addDays(7).getFirstTimeInDate()
@@ -123,7 +123,7 @@ processInstanceStartDatetime 日時型（プロセス開始日時）
 設定対象のデータ項目: q_duetime
 ```
 
-### 【前提5】
+### 【直近の金曜日を日付型で求めたい】
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -137,7 +137,7 @@ processInstanceStartDatetime 日時型（プロセス開始日時）
 
 説明：数日を加算して、現在の日付が金曜日より前か後かを判断する
 
-### 【記述例5】
+### 【記述例】
 
 ```
 EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
@@ -145,7 +145,7 @@ EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
 設定対象のデータ項目: q_start_date 日付型
 ```
 
-### 【前提6】
+### 【日付型→日時型：月末の指定時刻にしたい】
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -164,7 +164,7 @@ EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
  - この例では、日付型と日時型の相互変換および、それぞれに適用できるメソッドについて説明しています。
  - 要望に時間情報が含まれているため、設定対象のデータ項目は日時型である必要があります。
 
-### 【記述例6】
+### 【記述例】
 
 ```
 EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.addHours(10)
@@ -174,7 +174,7 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 
 説明：入力が日付型の場合、.getFirstTimeInDate() を使って日時型に変換する必要があります。
 
-### 【前提7】
+### 【UTCから「現地日付の0時」を計算したい】
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -191,7 +191,7 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 ```
 
 
-### 【記述例7】
+### 【記述例】
 
 ```
 この要件は、単体のEL式（データ更新のEL式）のみでは実現できない。理由：
@@ -206,7 +206,7 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 ・代替案として、数値型のUTCオフセット項目（例：`q_utc_offset_minutes` 数値型）を追加し、その分だけ加減算してローカル0:00相当を近似計算する（ただしDST切替時には誤差が生じ得る）。
 ```
 
-### 【前提8】
+### 【日付型：複数日付の比較で締切を決めたい】
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -232,7 +232,7 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 
 説明：比較演算子と三項演算子を利用する例。
 
-### 【記述例8】
+### 【記述例】
 
 ```
 EL式：#q_date1 >= #q_date2 && #q_date1 >= #q_date3 ? #q_date1?.addDays(7) : (#q_date2 >= #q_date3 ? #q_date2?.addDays(7) : #q_date3?.addDays(7))
