@@ -9,7 +9,6 @@ updated: 2026-02-05
 is_category_top: true
 ---
 
-<!--  カテゴリ内のトップ記事にis_category_top: trueを追加する -->
 
 ## このカテゴリでできること
 - テスト内容
