@@ -16,7 +16,11 @@ sidebar_title: 関連記事
 ## カテゴリから探す
 
 <div class="kb-cards">
-  {% assign all_pages = site.pages | where_exp:"p","p.section" | sort:"nav_order" %}
+  {% assign all_pages = site.pages
+  | where_exp:"p","p.section"
+  | where_exp:"p","p.name != 'index.md' and p.name != 'index.html'"
+  | sort:"nav_order"
+%}
   {% assign section_keys = all_pages | map: "section" | uniq %}
 
   {% for sec in section_keys %}
