@@ -66,11 +66,10 @@
       {%- comment -%}
       siblings: 同じカテゴリ内のページ（カテゴリindexは除外）
       {%- endcomment -%}
-      {% assign siblings = all_pages
-        | where: "section", current_section
-        | where_exp: "p", "p.name != 'index.md' and p.name != 'index.html'"
-        | sort: "nav_order"
-      %}
+      {% assign sec_index = all_pages
+  | where_exp: "p", "p.section == sec_key and (p.name == 'index.md' or p.name == 'index.html')"
+  | first
+%}
 
       <aside class="kb-sidebar">
         <!-- 主要カテゴリ -->
