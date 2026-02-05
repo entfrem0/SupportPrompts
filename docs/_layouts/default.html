@@ -62,7 +62,7 @@
     <div class="kb-content">
 {% assign all_pages = site.pages | sort: "nav_order" %}
 {% assign current_section = section_key | default: page.section %}
-{% assign siblings = all_pages | where: "section", current_section | where_exp: "p", "p.name != 'index.md' and p.name != 'index.html'" | sort: "nav_order" %}
+{% assign siblings = all_pages | where: "section", current_section | sort: "nav_order" %}
 
 <aside class="kb-sidebar">
   <!-- 主要カテゴリ -->
