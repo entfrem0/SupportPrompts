@@ -1,454 +1,226 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
 
-:root {
-  --kb-bg: #f5f7fb;
-  --kb-surface: #ffffff;
-  --kb-border: #d8dee6;
-  --kb-accent: #00a1c6;
-  --kb-accent-dark: #006d87;
-  --kb-text: #1f2933;
-  --kb-muted: #5b6b7f;
-  --kb-shadow: 0 10px 30px rgba(20, 40, 80, 0.08);
+/* =========================
+   Theme
+========================= */
+:root{
+  --bg:#f5f7fb;
+  --surface:#fff;
+  --border:#d8dee6;
+  --accent:#00a1c6;
+  --accent-dark:#006d87;
+  --text:#1f2933;
+  --muted:#5b6b7f;
+  --shadow:0 10px 30px rgba(20,40,80,.08);
+  --radius:16px;
+  --radius-lg:20px;
+  --content-w:1200px;
+  --header-w:1080px;
+  --hero-w:960px;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0f141e;
+    --surface:#161d2a;
+    --border:rgba(255,255,255,.08);
+    --text:#e6ebff;
+    --muted:#9aa4b8;
+    --shadow:0 14px 32px rgba(0,0,0,.35);
+  }
 }
 
-body {
-  margin: 0;
-  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--kb-text);
-  background: var(--kb-bg);
+/* =========================
+   Base
+========================= */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font:16px/1.7 "Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  color:var(--text);
+  background:var(--bg);
 }
+a{color:var(--accent-dark); text-decoration:none}
+a:hover,a:focus{text-decoration:underline}
 
-a {
-  color: var(--kb-accent-dark);
-  text-decoration: none;
+/* 文章中のURL等は折り返し */
+.kb-article a{overflow-wrap:anywhere; word-break:break-word}
+
+/* =========================
+   Header
+========================= */
+.kb-header{background:var(--surface); border-bottom:1px solid var(--border)}
+.kb-header__inner{
+  max-width:var(--header-w);
+  margin:0 auto;
+  padding:18px 24px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
 }
-
-a:hover,
-a:focus {
-  text-decoration: underline;
+.kb-header__brand{font-size:20px; font-weight:700; color:var(--accent-dark)}
+.kb-header__tagline{margin:2px 0 0; font-size:13px; color:var(--muted)}
+.kb-header__branding{display:flex; flex-direction:column}
+.kb-header__nav{display:flex; gap:12px; flex-wrap:wrap}
+.kb-header__nav-link{
+  padding:6px 10px;
+  border-radius:6px;
+  font-weight:500;
+  color:var(--muted);
+  transition:.2s;
 }
-
-.kb-header {
-  background: var(--kb-surface);
-  border-bottom: 1px solid var(--kb-border);
-}
-
-.kb-header__inner {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 18px 24px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.kb-header__brand {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--kb-accent-dark);
-}
-
-.kb-header__tagline {
-  margin: 2px 0 0;
-  font-size: 13px;
-  color: var(--kb-muted);
-}
-
-.kb-header__branding {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.kb-header__nav {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.kb-header__nav-link {
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-weight: 500;
-  color: var(--kb-muted);
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
 .kb-header__nav-link:hover,
-.kb-header__nav-link:focus {
-  background: rgba(0, 161, 198, 0.1);
-  color: var(--kb-accent-dark);
-  text-decoration: none;
+.kb-header__nav-link:focus{
+  background:rgba(0,161,198,.1);
+  color:var(--accent-dark);
+  text-decoration:none;
+}
+.kb-header__nav-link.is-active{
+  background:var(--accent);
+  color:#fff;
+  box-shadow:0 3px 12px rgba(0,161,198,.2);
 }
 
-.kb-header__nav-link.is-active {
-  background: var(--kb-accent);
-  color: #ffffff;
-  box-shadow: 0 3px 12px rgba(0, 161, 198, 0.2);
+/* =========================
+   Hero
+========================= */
+.kb-hero{background:#87c5ee7f; border-bottom:1px solid var(--border)}
+.kb-hero__inner{max-width:var(--hero-w); margin:0 auto; padding:32px 24px}
+.kb-breadcrumb{font-size:13px; color:var(--muted); display:flex; gap:6px; flex-wrap:wrap; align-items:center}
+.kb-breadcrumb a{color:inherit}
+.kb-breadcrumb__current{font-weight:500; color:var(--text)}
+.kb-hero__title{margin:16px 0 0; font-size:32px; font-weight:700; letter-spacing:.02em}
+.kb-hero__lead{margin:12px 0 0; font-size:15px; color:var(--muted)}
+
+/* =========================
+   Layout
+========================= */
+.kb-main{min-height:100vh}
+.kb-content{
+  max-width:var(--content-w);
+  margin:16px auto 64px;
+  padding:0 24px;
+  display:grid;
+  grid-template-columns:minmax(0,260px) minmax(0,1fr);
+  gap:32px;
 }
 
-.kb-hero {
-background: #87c5ee7f !important;
-border-bottom: 1px solid var(--kb-border);
+/* =========================
+   Sidebar
+========================= */
+.kb-sidebar__card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px 20px;
+}
+.kb-sidebar__title{margin:0 0 18px; font-size:15px; font-weight:700; color:var(--muted); letter-spacing:.04em}
+.kb-sidebar__list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px}
+.kb-sidebar__item{line-height:1.4}
+.kb-sidebar__link{color:var(--text); font-weight:500; display:inline-flex; align-items:center; gap:6px}
+.kb-sidebar__link::before{content:"›"; color:var(--accent)}
+.kb-sidebar__link:hover{color:var(--accent-dark)}
+.kb-sidebar__current{display:inline-block; padding-left:16px; font-size:14px; color:var(--muted)}
+.kb-sidebar__meta{margin:16px 0 0; font-size:13px; color:var(--muted)}
+
+/* =========================
+   Article (content)
+========================= */
+.kb-article{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);
+  padding:40px 48px;
+}
+.kb-article p{margin:12px 0}
+.kb-article ul,.kb-article ol{margin:12px 0 12px 20px}
+.kb-article li+li{margin-top:6px}
+.kb-article strong{font-weight:600}
+
+.kb-article h2{
+  margin:48px 0 16px;
+  font-size:24px;
+  font-weight:700;
+  color:var(--accent-dark);
+  padding-bottom:8px;
+  border-bottom:2px solid rgba(0,161,198,.3);
+}
+.kb-article h2:first-child{margin-top:0}
+.kb-article h3{margin:32px 0 12px; font-size:20px; font-weight:600}
+.kb-article h4{margin:24px 0 10px; font-size:17px; font-weight:600}
+
+/* code */
+.kb-article code{
+  background:rgba(31,41,51,.08);
+  padding:2px 6px;
+  border-radius:6px;
+  font-size:90%;
+  word-break:break-word;
+}
+.kb-article pre{
+  background:#0f1c2b;
+  color:#edf2f7;
+  padding:16px 18px;
+  border-radius:12px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  font-size:14px;
+  white-space:pre;
+}
+.kb-article pre code{background:transparent; padding:0; white-space:inherit}
+
+/* blockquote */
+.kb-article blockquote{
+  margin:18px 0;
+  padding:16px 20px;
+  border-left:4px solid var(--accent);
+  background:rgba(0,161,198,.08);
+  color:var(--muted);
+  border-radius:10px;
 }
 
-.kb-hero__inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 32px 24px;
+@media (prefers-color-scheme: dark){
+  .kb-article pre{background:#0a111d}
 }
 
-.kb-breadcrumb {
-  font-size: 13px;
-  color: var(--kb-muted);
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  align-items: center;
+/* =========================
+   Table
+========================= */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:16px 0;
+  background:var(--surface);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+th,td{border:1px solid var(--border); padding:12px 14px; text-align:left}
+thead{background:rgba(0,161,198,.08); color:var(--muted)}
+
+/* =========================
+   Footer
+========================= */
+.kb-footer{background:var(--surface); border-top:1px solid var(--border)}
+.kb-footer__inner{max-width:var(--hero-w); margin:0 auto; padding:24px; text-align:center; color:var(--muted); font-size:13px}
+.kb-footer__brand{font-weight:600; margin:0}
+.kb-footer__meta{margin:6px 0 0}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 960px){
+  .kb-content{grid-template-columns:1fr; margin-top:-16px}
+  .kb-sidebar{order:2}
+  .kb-article{padding:32px 28px}
 }
 
-.kb-breadcrumb a {
-  color: var(--kb-muted);
-}
-
-.kb-breadcrumb__current {
-  font-weight: 500;
-  color: var(--kb-text);
-}
-
-.kb-hero__title {
-  margin: 16px 0 0;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--kb-text);
-}
-
-.kb-hero__lead {
-  margin: 12px 0 0;
-  font-size: 15px;
-  color: var(--kb-muted);
-  max-width: 100%;      /* 幅を画面いっぱいまで広げる  元々は640px */
-  word-break: normal;   /* 日本語の単語単位での強制改行を防ぐ */
-  white-space: normal;  /* 改行を通常通りにする */
-
-}
-
-.kb-main {
-  min-height: 100vh;
-}
-
-.kb-content {
-  max-width: 1200px; /* 960 */
-  margin: 16px auto 64px;
-  padding: 0 24px;
-  display: grid;
-  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
-  gap: 32px;
-}
-
-.kb-sidebar {
-  position: relative;
-}
-
-.kb-sidebar__card {
-  background: var(--kb-surface);
-  border: 1px solid var(--kb-border);
-  border-radius: 16px;
-  box-shadow: var(--kb-shadow);
-  padding: 24px 20px;
-}
-
-.kb-sidebar__title {
-  margin: 0 0 18px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--kb-muted);
-  letter-spacing: 0.04em;
-}
-
-.kb-sidebar__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.kb-sidebar__item {
-  line-height: 1.4;
-}
-
-.kb-sidebar__link {
-  color: var(--kb-text);
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.kb-sidebar__link::before {
-  content: "›";
-  color: var(--kb-accent);
-}
-
-.kb-sidebar__link:hover {
-  color: var(--kb-accent-dark);
-}
-
-.kb-sidebar__current {
-  display: inline-block;
-  padding-left: 16px;
-  font-size: 14px;
-  color: var(--kb-muted);
-}
-
-.kb-sidebar__meta {
-  margin: 16px 0 0;
-  font-size: 13px;
-  color: var(--kb-muted);
-}
-
-.kb-article {
-  background: var(--kb-surface);
-  border-radius: 20px;
-  padding: 40px 48px;
-  box-shadow: var(--kb-shadow);
-  border: 1px solid var(--kb-border);
-}
-
-.kb-article h2 {
-  margin-top: 48px;
-  margin-bottom: 16px;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--kb-accent-dark);
-  padding-bottom: 8px;
-  border-bottom: 2px solid rgba(0, 161, 198, 0.3);
-}
-
-.kb-article h2:first-child {
-  margin-top: 0;
-}
-
-.kb-article h3 {
-  margin-top: 32px;
-  margin-bottom: 12px;
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--kb-text);
-}
-
-.kb-article h4 {
-  margin-top: 24px;
-  margin-bottom: 10px;
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--kb-text);
-}
-
-.kb-article p {
-  margin: 12px 0;
-}
-
-.kb-article ul,
-.kb-article ol {
-  margin: 12px 0 12px 20px;
-}
-
-.kb-article li + li {
-  margin-top: 6px;
-}
-
-.kb-article strong {
-  font-weight: 600;
-}
-
-.kb-article code {
-  background: rgba(31, 41, 51, 0.08);
-  padding: 2px 6px;
-  border-radius: 6px;
-  font-size: 90%;
-}
-
-.kb-article pre {
-  background: #0f1c2b;
-  color: #edf2f7;
-  padding: 16px 18px;
-  border-radius: 12px;
-  overflow-x: auto;
-  font-size: 14px;
-}
-
-.kb-article pre code {
-  background: transparent;
-  padding: 0;
-}
-
-.kb-article blockquote {
-  margin: 18px 0;
-  padding: 16px 20px;
-  border-left: 4px solid var(--kb-accent);
-  background: rgba(0, 161, 198, 0.08);
-  color: var(--kb-muted);
-  border-radius: 10px;
-}
-
-.kb-footer {
-  background: var(--kb-surface);
-  border-top: 1px solid var(--kb-border);
-}
-
-.kb-footer__inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 24px;
-  text-align: center;
-  color: var(--kb-muted);
-  font-size: 13px;
-}
-
-.kb-footer__brand {
-  font-weight: 600;
-  margin: 0;
-}
-
-.kb-footer__meta {
-  margin: 6px 0 0;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 16px 0;
-  box-shadow: var(--kb-shadow);
-  background: var(--kb-surface);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-table th,
-table td {
-  border: 1px solid var(--kb-border);
-  padding: 12px 14px;
-  text-align: left;
-}
-
-table thead {
-  background: rgba(0, 161, 198, 0.08);
-  color: var(--kb-muted);
-}
-
-@media (max-width: 960px) {
-  .kb-content {
-    grid-template-columns: 1fr;
-    margin-top: -16px;
-  }
-
-  .kb-sidebar {
-    order: 2;
-  }
-
-  .kb-article {
-    padding: 32px 28px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --kb-bg: #0f141e;
-    --kb-surface: #161d2a;
-    --kb-border: rgba(255, 255, 255, 0.08);
-    --kb-text: #e6ebff;
-    --kb-muted: #9aa4b8;
-    --kb-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
-  }
-
-  body {
-    color: var(--kb-text);
-  }
-
-  .kb-breadcrumb__current,
-  .kb-sidebar__link,
-  .kb-sidebar__current {
-    color: var(--kb-text);
-  }
-
-  .kb-header,
-  .kb-footer {
-    background: var(--kb-surface);
-  }
-
-  .kb-article pre {
-    background: #0a111d;
-  }
-}
-
-/* 追加分 */
-
-@media (max-width: 640px) {
-
-  /* PC の2カラム grid を完全に解除（最重要） */
-  .kb-content {
-    display: block !important;
-    width: 100% !important;
-    padding: 0 16px !important;
-    margin: 16px auto 32px !important;
-    box-sizing: border-box;
-  }
-
-  /* 本文カードの余白をスマホ幅に最適化 */
-  .kb-article {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 32px 24px !important;
-    box-sizing: border-box;
-  }
-
-  /* サイドバーも縦並びになるので幅を100%に */
-  .kb-sidebar {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-bottom: 24px;
-  }
-
-  .kb-sidebar__card {
-    padding: 24px 10px !important;
-  }
-}
-
-/* --- コードブロックを横スクロールさせる（GitHub方式） --- */
-.kb-article pre {
-  white-space: pre !important;        /* 改行しない（横スクロール前提） */
-  overflow-x: auto !important;        /* 横スクロール追加 */
-  -webkit-overflow-scrolling: touch;  /* iOSでヌルッとスクロール */
-  max-width: 100%;                    /* 枠からはみ出さない */
-}
-
-/* コードブロック内のコード */
-.kb-article pre code {
-  white-space: inherit !important;    /* pre の挙動に従わせる */
-}
-
-/* インラインコードは通常折り返しでOK */
-.kb-article code {
-  white-space: normal;
-  word-break: break-word;
-}
-
-/* URL（パーマリンク）の折り返しを強制 */
-.kb-article a {
-  word-break: break-all;
-  overflow-wrap: anywhere;
+@media (max-width: 640px){
+  .kb-content{padding:0 16px; margin:16px auto 32px}
+  .kb-article{padding:32px 24px}
+  .kb-sidebar__card{padding:24px 10px}
 }
