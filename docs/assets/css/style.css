@@ -332,3 +332,13 @@ thead{background:rgba(0,161,198,.08); color:var(--muted)}
 @media (max-width: 960px){
   .kb-cards{grid-template-columns:1fr}
 }
+
+/* sidebar categories active */
+.kb-sidebar__link.is-active{
+  color: var(--accent-dark);
+  font-weight: 700;
+}
+
+.kb-sidebar__card--categories{
+  margin-bottom: 16px;
+}
