@@ -15,8 +15,8 @@ sidebar_title: 関連記事
 <ul>
   {% for p in all_pages %}
     {% if p.title and p.url != page.url %}
-      {% if p.url contains '/test/' %}
-        {% unless p.url == '/test/' or p.url == '/test/index.html' %}
+      {% if p.url contains '/date_datetime/' %}
+        {% unless p.url == '/date_datetime/' or p.url == '/date_datetime/index.html' %}
           <li>
             <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
             {% if p.lead %}
