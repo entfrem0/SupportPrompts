@@ -1,6 +1,5 @@
 ---
 title: 記事一覧
-short_title: 記事一覧
 layout: default
 lead: 記事一覧です。
 permalink: /date_datetime/
