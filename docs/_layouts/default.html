@@ -89,30 +89,33 @@
   </div>
   {% endif %}
 
-  <!-- 同じカテゴリ内（関連記事） -->
-  <div class="kb-sidebar__card">
-    <h2 class="kb-sidebar__title">{{ page.sidebar_title }}</h2>
-    <ul class="kb-sidebar__list">
-{% assign section_url = section_meta.url | default: "" %}
-{% assign section_url = section_url | append: "/" | replace: "//", "/" %}
-{% assign section_index_url = section_url | append: "index.html" %}
 
-{% for sibling in siblings %}
-  {% assign s_url = sibling.url | append: "" %}
-  {% if sibling.title
-    and s_url != page.url
-    and s_url != section_url
-    and s_url != section_index_url %}
+  <!-- 同じカテゴリ内（関連記事） -->
+<div class="kb-sidebar__card">
+  <h2 class="kb-sidebar__title">{{ page.sidebar_title | default: "関連記事" }}</h2>
+
+  {% assign all_pages = site.pages | sort: "nav_order" %}
+  {% assign current_section = page.section | default: section_key %}
+  {% assign siblings = all_pages | where: "section", current_section | sort: "nav_order" %}
+
+  <ul class="kb-sidebar__list">
+    {% for sibling in siblings %}
+      {% if sibling.title
+        and sibling.url != page.url
+        and sibling.is_category_top != true %}
+        <li class="kb-sidebar__item">
+          <a class="kb-sidebar__link" href="{{ sibling.url | relative_url }}">
+            {{ sibling.title }}
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
     <li class="kb-sidebar__item">
-      <a class="kb-sidebar__link" href="{{ sibling.url | relative_url }}">{{ sibling.title }}</a>
+      <span class="kb-sidebar__current">{{ page.title }}</span>
     </li>
-  {% endif %}
-{% endfor %}
-      <li class="kb-sidebar__item">
-        <span class="kb-sidebar__current">{{ page.title }}</span>
-      </li>
-    </ul>
-  </div>
+  </ul>
+</div>
 
   {% if page.updated %}
     <p class="kb-sidebar__meta">最終更新: <time datetime="{{ page.updated | date_to_xmlschema }}">{{ page.updated | date: "%Y-%m-%d" }}</time></p>
