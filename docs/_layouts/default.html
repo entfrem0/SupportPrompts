@@ -79,7 +79,7 @@
         {% if sec_home %}
         <li class="kb-sidebar__item">
           <a class="kb-sidebar__link{% if sec_key == current_section %} is-active{% endif %}"
-             href="{{ sec_home.url | relative_url }}">
+             href="{{ sec_meta.url | relative_url }}">
             {{ sec_meta.title | default: sec_key }}
           </a>
         </li>
@@ -94,12 +94,12 @@
     <h2 class="kb-sidebar__title">{{ page.sidebar_title }}</h2>
     <ul class="kb-sidebar__list">
       {% for sibling in siblings %}
-        {% if sibling.title and sibling.url != page.url %}
-          <li class="kb-sidebar__item">
-            <a class="kb-sidebar__link" href="{{ sibling.url | relative_url }}">{{ sibling.title }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
+  {% if sibling.title and sibling.url != page.url and sibling.url != section_meta.url %}
+    <li class="kb-sidebar__item">
+      <a class="kb-sidebar__link" href="{{ sibling.url | relative_url }}">{{ sibling.title }}</a>
+    </li>
+  {% endif %}
+{% endfor %}
       <li class="kb-sidebar__item">
         <span class="kb-sidebar__current">{{ page.title }}</span>
       </li>
