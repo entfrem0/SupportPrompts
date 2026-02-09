@@ -93,15 +93,10 @@
   <div class="kb-sidebar__card">
     <h2 class="kb-sidebar__title">{{ page.sidebar_title }}</h2>
     <ul class="kb-sidebar__list">
-{% assign section_url = section_meta.url | default: "" %}
-{% assign section_index_url = section_url | append: "index.html" %}
-
 {% for sibling in siblings %}
-  {% assign s_url = sibling.url | append: "" %}
   {% if sibling.title
-    and s_url != page.url
-    and s_url != section_url
-    and s_url != section_index_url %}
+    and sibling.url != page.url
+    and sibling.name != 'index.md' %}
     <li class="kb-sidebar__item">
       <a class="kb-sidebar__link" href="{{ sibling.url | relative_url }}">{{ sibling.title }}</a>
     </li>
