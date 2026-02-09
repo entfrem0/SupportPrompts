@@ -7,6 +7,7 @@ permalink: /date_datetime/
 section: date_datetime
 nav_order: 999
 sidebar_title: 関連記事
+is_category_top: true
 ---
 
 ## 記事一覧
