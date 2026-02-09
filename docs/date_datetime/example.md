@@ -47,6 +47,8 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 設定対象のデータ項目: q_deadline 日付型
 ```
 
+---
+
 ### 【日付型：営業日計算をしたい】
 
 ```
@@ -71,8 +73,9 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 「契約開始日から3営業日後」の「営業日」を計算する関数は存在しない。
 ```
 
+---
 
-### 【日時型：日数＋時刻（18時）を指定したい】
+### 【日時型：日数＋時刻を指定したい】
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -99,6 +102,8 @@ EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
 設定対象のデータ項目: q_repair_due 日時型
 ```
 
+---
+
 ### 【システム日時から計算したい】
 
 ```
@@ -123,6 +128,8 @@ processInstanceStartDatetime 日時型（プロセス開始日時）
 設定対象のデータ項目: q_duetime
 ```
 
+---
+
 ### 【直近の金曜日を日付型で求めたい】
 
 ```
@@ -144,6 +151,8 @@ EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
 
 設定対象のデータ項目: q_start_date 日付型
 ```
+
+---
 
 ### 【日付型→日時型：月末の指定時刻にしたい】
 
@@ -177,6 +186,9 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 ### 【UTCから「現地日付の0時」を計算したい】
 
 ```
+
+---
+
 ワークフローアプリには、以下のデータ項目がある。
 
 ・基準時刻（UTC）
@@ -205,6 +217,8 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 ・スクリプト処理でクライアント/サーバーからユーザーのタイムゾーンを取得し、`q_now_utc` をローカルに変換して次回0:00を算出し、`q_next_local_midnight` に設定する。
 ・代替案として、数値型のUTCオフセット項目（例：`q_utc_offset_minutes` 数値型）を追加し、その分だけ加減算してローカル0:00相当を近似計算する（ただしDST切替時には誤差が生じ得る）。
 ```
+
+---
 
 ### 【日付型：複数日付の比較で締切を決めたい】
 
