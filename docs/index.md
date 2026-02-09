@@ -30,7 +30,7 @@ sidebar_title: 関連記事
       <section class="kb-card">
         <header class="kb-card__header">
           <h2 class="kb-card__title">
-            <a href="{{ section_home.url | relative_url }}">{{ title }}</a>
+            <a href="{{ site.sections[sec].url | relative_url }}">{{ title }}</a>
           </h2>
           {% if desc %}
             <p class="kb-card__desc">{{ desc }}</p>
@@ -51,7 +51,7 @@ sidebar_title: 関連記事
         </ul>
 
         <div class="kb-card__footer">
-          <a class="kb-card__more" href="{{ section_home.url | relative_url }}">すべて見る →</a>
+          <a class="kb-card__more" href="{{ site.sections[sec].url | relative_url }}">すべて見る →</a>
         </div>
       </section>
       {% endif %}
