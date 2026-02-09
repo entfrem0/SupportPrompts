@@ -31,6 +31,10 @@ sections:
     title: テスト記事
     description: テスト記事
     url: /test/
+  test2:
+    title: テスト記事2
+    description: テスト記事2
+    url: /test2/
 
 # 新しく記事を作る際は、sectionsに項目を作る。titleとdescriptionとurlも加える
 
