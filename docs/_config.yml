@@ -26,11 +26,13 @@ sections:
   date_datetime:
     title: 日付／日時データ更新
     description: 日付型・日時型データの更新手順と代表的なEL式サンプル
+    url: /date_datetime/
   test:
     title: テスト記事
     description: テスト記事
+    url: /test/
 
-# 新しく記事を作る際は、sectionsに項目を作る。titleとdescriptionも加える
+# 新しく記事を作る際は、sectionsに項目を作る。titleとdescriptionとurlも加える
 
 kramdown:
   input: GFM
