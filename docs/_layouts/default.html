@@ -101,7 +101,8 @@
   {% if sibling.title
     and s_url != page.url
     and s_url != section_url
-    and s_url != section_index_url %}
+    and s_url != section_index_url
+    and s_url contains '/docs/' == false %}
     <li class="kb-sidebar__item">
       <a class="kb-sidebar__link" href="{{ sibling.url | relative_url }}">{{ sibling.title }}</a>
     </li>
