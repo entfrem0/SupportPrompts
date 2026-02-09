@@ -183,6 +183,8 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 
 説明：入力が日付型の場合、.getFirstTimeInDate() を使って日時型に変換する必要があります。
 
+---
+
 ### 【UTCから「現地日付の0時」を計算したい】
 
 ```
