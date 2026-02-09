@@ -5,7 +5,7 @@ section: date_datetime
 date: 2025-10-14
 lead: 日付・日時データを活用するための仕様と代表的な EL 式の使い方を整理しました。
 updated: 2026-02-05
-is_category_top: true
+nav_order: 1
 ---
 
 > ## サンプルページはこちら
