@@ -55,12 +55,13 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 ```
 ワークフローアプリには、以下のデータ項目がある。
 
-・契約開始日
-・日付型
-・フィールド名 q_contract_start
-・契約終了日
-・日付型
-・フィールド名 q_contract_end
+契約開始日
+　変数型：日付型
+　フィールド名：q_contract_start
+
+契約終了日
+　変数型：日付型
+　フィールド名：q_contract_end
 
 
 「契約終了日」の値を、「契約開始日から3営業日後」に更新したい。
@@ -87,7 +88,7 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 
 修理完了予定日時
   変数型：日時型
-フィールド名：q_repair_due 
+　フィールド名：q_repair_due 
 
 修理完了予定日を、受付から12日後の午後6時に設定したい。
 ```
@@ -138,14 +139,14 @@ processInstanceStartDatetime 日時型（プロセス開始日時）
 ワークフローアプリには、以下のデータ項目がある。
 
 プロジェクト開始日
-変数型：日付型
-フィールド名：q_start_date
+　変数型：日付型
+　フィールド名：q_start_date
 
 プロジェクト開始日を今日より直前の金曜日に設定したい。
 ```
 
 説明：数日を加算して、現在の日付が金曜日より前か後かを判断する
-
+　
 #### 【記述例】
 
 ```
