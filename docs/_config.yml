@@ -27,14 +27,14 @@ sections:
     title: 日付／日時データ更新
     description: 日付型・日時型データの更新手順と代表的なEL式サンプル
     url: /date_datetime/
-  test:
-    title: テスト記事
-    description: テスト記事
-    url: /test/
-  test2:
-    title: テスト記事2
-    description: テスト記事2
-    url: /test2/
+#  test:
+#    title: テスト記事
+#    description: テスト記事
+#    url: /test/
+#  test2:
+#    title: テスト記事2
+#    description: テスト記事2
+#    url: /test2/
   user:
     title: ユーザ型データ更新
     description: ユーザー型データの更新手順と代表的なEL式サンプル
