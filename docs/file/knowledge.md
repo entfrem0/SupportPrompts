@@ -1,7 +1,7 @@
 ---
 title: ファイル型データ項目を更新する
 layout: default
-section: dfile
+section: file
 date: 2026-04-03
 lead: ファイル型データを活用するための仕様と代表的な EL 式の使い方を整理しました。
 updated: 2026-04-03
