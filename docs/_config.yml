@@ -35,6 +35,11 @@ sections:
     title: テスト記事2
     description: テスト記事2
     url: /test2/
+  user:
+    title: ユーザ型データ更新
+    description: ユーザー型データの更新手順と代表的なEL式サンプル
+    url: /user
+    
 
 # 新しく記事を作る際は、sectionsに項目を作る。titleとdescriptionとurlも加える
 
