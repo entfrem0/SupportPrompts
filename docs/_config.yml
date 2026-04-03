@@ -43,6 +43,10 @@ sections:
     title: 組織型データ更新
     description: 組織型データの更新手順と代表的なEL式サンプル
     url: /group/
+  select: 
+    title: 選択型データ更新
+    description: 選択型データの更新手順と代表的なEL式サンプル
+    url: /select/
 
 
 # 新しく記事を作る際は、sectionsに項目を作る。titleとdescriptionとurlも加える
