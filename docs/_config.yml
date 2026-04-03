@@ -51,6 +51,10 @@ sections:
     title: 文字型データ更新
     description: 文字型データの更新手順と代表的なEL式サンプル
     url: /string/
+  file: 
+    title: ファイル型データ更新
+    description: ファイル型データの更新手順と代表的なEL式サンプル
+    url: /file/
 
 
 # 新しく記事を作る際は、sectionsに項目を作る。titleとdescriptionとurlも加える
