@@ -39,6 +39,10 @@ sections:
     title: ユーザ型データ更新
     description: ユーザー型データの更新手順と代表的なEL式サンプル
     url: /user/
+  group: 
+    title: 組織型データ更新
+    description: 組織型データの更新手順と代表的なEL式サンプル
+    url: /group/
 
 
 # 新しく記事を作る際は、sectionsに項目を作る。titleとdescriptionとurlも加える
