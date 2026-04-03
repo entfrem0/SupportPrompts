@@ -47,6 +47,10 @@ sections:
     title: 選択型データ更新
     description: 選択型データの更新手順と代表的なEL式サンプル
     url: /select/
+  string:
+    title: 文字型データ更新
+    description: 文字型データの更新手順と代表的なEL式サンプル
+    url: /string/
 
 
 # 新しく記事を作る際は、sectionsに項目を作る。titleとdescriptionとurlも加える
