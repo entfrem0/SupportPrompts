@@ -34,7 +34,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_estimate_file != null && #q_estimate_file[0] != null && #q_estimate_file[0]?.getLength() >= 1048576 ? {'review'} : ''} 
+- EL式：#{#q_estimate_file != null && #q_estimate_file[0] != null && #q_estimate_file[0]?.getLength() >= 1048576 ? {'review'} : ''} 
 - #q_estimate_file（ファイル型）
 - 設定対象のデータ項目: q_estimate_status（選択型）
 
@@ -62,7 +62,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_attached_document != null && #q_attached_document[0] != null && #q_attached_document[0]?.getMalwareScanStatus() == 'THREATS_FOUND' ? '危険なファイルが検出されました' : ''}
+- EL式：#{#q_attached_document != null && #q_attached_document[0] != null && #q_attached_document[0]?.getMalwareScanStatus() == 'THREATS_FOUND' ? '危険なファイルが検出されました' : ''}
 - #q_attached_document（ファイル型）
 - 設定対象のデータ項目: q_malware_check_result（文字型）
 
@@ -87,7 +87,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_contract_file != null && #q_contract_file[0] != null ? #q_contract_file[0]?.getName() : ''}
+- EL式：#{#q_contract_file != null && #q_contract_file[0] != null ? #q_contract_file[0]?.getName() : ''}
 - #q_contract_file（ファイル型）
 - 設定対象のデータ項目: q_contract_name（文字型）
 
@@ -113,7 +113,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_image_file != null && #q_image_file[0] != null && #q_image_file[0]?.isImage() == true ? {'image'} : ''}
+- EL式：#{#q_image_file != null && #q_image_file[0] != null && #q_image_file[0]?.isImage() == true ? {'image'} : ''}
 - #q_image_file（ファイル型）
 - 設定対象のデータ項目: q_image_type（選択型）
 
@@ -140,7 +140,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_report_file != null && #q_report_file[0] != null && #q_report_file[0]?.getLength() > 10485760 ? 'ファイルサイズが大きすぎます' : ''}
+- EL式：#{#q_report_file != null && #q_report_file[0] != null && #q_report_file[0]?.getLength() > 10485760 ? 'ファイルサイズが大きすぎます' : ''}
 - #q_report_file（ファイル型）
 - 設定対象のデータ項目: q_file_size_warning（文字型）
 

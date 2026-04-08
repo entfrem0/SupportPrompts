@@ -32,7 +32,7 @@ nav_order: 2
 ### 回答
 
 ```
-- EL式：£{#q_interviewer?.getName()}
+- EL式：#{#q_interviewer?.getName()}
 - #q_interviewer（ユーザー型）
 - 設定対象のデータ項目: q_interview_result（文字型）
 ```
@@ -53,7 +53,7 @@ nav_order: 2
 ### 回答
 
 ```
-- EL式：£{#q_approver?.getEmail()}
+- EL式：#{#q_approver?.getEmail()}
 - #q_approver（ユーザー型）
 - 設定対象のデータ項目: q_approval_memo（文字型）
 ```
@@ -75,7 +75,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_sales_rep?.getName()}
+- EL式：#{#q_sales_rep?.getName()}
 - #q_sales_rep（ユーザー型）
 - 設定対象のデータ項目: q_customer_history（文字型）
 ```
@@ -97,7 +97,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_purchaser?.getId()}
+- EL式：#{#q_purchaser?.getId()}
 - #q_purchaser（ユーザー型）
 - 設定対象のデータ項目: q_purchase_memo（文字型）
 ```

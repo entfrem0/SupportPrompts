@@ -99,7 +99,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_purchasing_department?.getName()}
+- EL式：#{#q_purchasing_department?.getName()}
 - #q_purchasing_department（組織型）
 - 設定対象のデータ項目: q_purchase_memo（文字型）
 ```
@@ -120,7 +120,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_training_log + ' ' + #q_training_group?.getName()}
+- EL式：#{#q_training_log + ' ' + #q_training_group?.getName()}
 - #q_training_group（組織型）
 - 設定対象のデータ項目: q_training_log（文字型）
 ```

@@ -32,7 +32,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_inquiry?.contains('至急') ? {'urgent'} : {'pending'}}
+- EL式：#{#q_inquiry?.contains('至急') ? {'urgent'} : {'pending'}}
 - #q_inquiry（文字型）
 - 設定対象のデータ項目: q_status（選択型）
 ```
@@ -55,7 +55,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_participant?.getName()?.contains('営業') ? {'approved'} : {'rejected'}}
+- EL式：#{#q_participant?.getName()?.contains('営業') ? {'approved'} : {'rejected'}}
 - #q_participant（ユーザー型）
 - 設定対象のデータ項目: q_attendance（選択型）
 ```
@@ -79,7 +79,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_product_category?.get(0)?.getValue() == 'electronics' ? {'10percent'} : {'no_discount'}}
+- EL式：#{#q_product_category?.get(0)?.getValue() == 'electronics' ? {'10percent'} : {'no_discount'}}
 - #q_product_category（選択型）
 - 設定対象のデータ項目: q_discount_type（選択型）
 ```
@@ -103,7 +103,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_contract_file != null && #q_contract_file[0] != null && #q_contract_file[0]?.getLength() > 1000000 ? {'detailed_review'} : {'quick_review'}}
+- EL式：#{#q_contract_file != null && #q_contract_file[0] != null && #q_contract_file[0]?.getLength() > 1000000 ? {'detailed_review'} : {'quick_review'}}
 - #q_contract_file（ファイル型）
 - 設定対象のデータ項目: q_review_status（選択型）
 ```
@@ -127,7 +127,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_urgency?.get(0)?.getValue() == 'high' ? {'immediate'} : {'standard'}}
+- EL式：#{#q_urgency?.get(0)?.getValue() == 'high' ? {'immediate'} : {'standard'}}
 - #q_urgency（選択型）
 - 設定対象のデータ項目: q_mail_status（選択型）
 ```

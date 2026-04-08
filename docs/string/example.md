@@ -32,12 +32,12 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_customer_message?.contains('緊急') ? '高優先' : '通常'}
+- EL式：#{#q_customer_message?.contains('緊急') ? '高優先' : '通常'}
 - #q_customer_message（文字型（複数行））
 - 設定対象のデータ項目: q_support_status（文字型）
 
 提案2：
-- EL式：£{#q_customer_message?.contains('クレーム') ? '要対応' : '対応済'}
+- EL式：#{#q_customer_message?.contains('クレーム') ? '要対応' : '対応済'}
 - #q_customer_message（文字型（複数行））
 - 設定対象のデータ項目: q_support_status（文字型）
 ```
@@ -59,7 +59,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_applicant_name + '\n\n申請者: ' + #q_applicant_name?.toUpperCase()}
+- EL式：#{#q_applicant_name + '\n\n申請者: ' + #q_applicant_name?.toUpperCase()}
 - #q_applicant_name（文字型）
 - 設定対象のデータ項目: q_application_comment（文字型（複数行））
 ```
@@ -103,7 +103,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_product_names?.replace(',', '\n')}
+- EL式：#{#q_product_names?.replace(',', '\n')}
 - #q_product_names（文字型）
 - 設定対象のデータ項目: q_inventory_status（文字型）
 ```
@@ -126,7 +126,7 @@ nav_order: 2
 
 ```
 提案1：
-- EL式：£{#q_error_log?.split('\n')?.length > 0 ? #q_error_log?.split('\n')[0] : ''}
+- EL式：#{#q_error_log?.split('\n')?.length > 0 ? #q_error_log?.split('\n')[0] : ''}
 - #q_error_log（文字型（複数行））
 - 設定対象のデータ項目: q_error_summary（文字型）
 ```
