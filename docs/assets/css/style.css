@@ -347,3 +347,15 @@ thead{background:rgba(0,161,198,.08); color:var(--muted)}
 .kb-category-index__list{list-style:none; padding:0; margin:14px 0 0; display:flex; flex-direction:column; gap:12px}
 .kb-category-index__item a{font-weight:700}
 .kb-category-index__lead{margin-top:4px; color:var(--muted); font-size:13px}
+
+/* h1見出しを目立たせる */
+
+.kb-article h1{
+  margin:0 0 28px;
+  font-size:30px;
+  font-weight:700;
+  padding:14px 18px;
+  background:rgba(0,161,198,.10);
+  border-left:6px solid var(--accent);
+  border-radius:10px;
+}
