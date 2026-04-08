@@ -9,11 +9,11 @@ nav_order: 1
 ---
 
 
-## データ更新工程の概要
+# データ更新工程の概要
 
 「データ更新」とは、業務データを指定の値または式の評価結果によって自動的に更新する工程です。
 
-### 仕様および注意点
+## 仕様および注意点
 - ひとつの工程で複数のデータ項目を同時に更新できます  
 - 更新値は固定値でもよく、EL式（SpEL）による動的な評価結果を使うこともできます  
 - 工程の設定では、対象データの選択、値または式の編集、参照の挿入（プロセス開始日時やユーザ名など）が可能です。ただしデータ型によっては値のクリアのみが可能です  
@@ -22,12 +22,12 @@ nav_order: 1
 
 次に、「データ更新」に使えるファイル型の設定書式と変換操作の方法について説明します。
 
-## ファイル型データに関する文法知識
+# ファイル型データに関する文法知識
 
 業務プロセスでファイル型データを操作する際には、それぞれの特性と目的に応じて適切なメソッドを使い分ける必要があります。以下では、すべてのメソッドとその機能を分類して紹介します。
 
 
-### 1. ファイル型の特性
+## 1. ファイル型の特性
 
 - ファイル型は、ワークフロー内で **複数のファイルを保存できるデータ型**です。
 - 1つのデータ項目に **複数ファイルを格納できます**。
@@ -38,7 +38,7 @@ nav_order: 1
   - メール添付
 - 一度に複数ファイルを編集することはできません。
 
-### 2. SpELの注意
+## 2. SpELの注意
 
 - ファイル型は配列構造になっており、0番目のファイル型変数を表すときは
 `#q_files[0]`
@@ -47,12 +47,12 @@ nav_order: 1
 例：
 `#q_files != null && #q_files[0] != null ? #q_files[0]?.getId() : 0`
 
-### 3. メソッドの対応と例
+## 3. メソッドの対応と例
 
 対象オブジェクトのデータ型をファイル型に分けて、よく使われるメソッドを整理します。
 
 
-#### getId()
+### getId()
 
 - **説明**：ファイルIDを取得します。
 - **入力**：ファイル型
@@ -61,7 +61,7 @@ nav_order: 1
 
 `#q_files != null && #q_files[0] != null ? #q_files[0]?.getId() : 0`
 
-#### getName()
+### getName()
 
 - **説明**：ファイル名を取得します。
 - **入力**：ファイル型
@@ -70,7 +70,7 @@ nav_order: 1
 
 `#q_files != null && #q_files[0] != null ? #q_files[0]?.getName() : ‘’`
 
-#### getLength()
+### getLength()
 
 - **説明**：ファイルサイズ（バイト）を取得します。
 - **入力**：ファイル型
@@ -80,7 +80,7 @@ nav_order: 1
 `#q_files != null && #q_files[0] != null ? #q_files[0]?.getLength() : 0`
 
 
-#### getLengthText()
+### getLengthText()
 
 - **説明**：ファイルサイズをテキスト形式で取得します。
 - **入力**：ファイル型
@@ -89,7 +89,7 @@ nav_order: 1
 
 `#q_files != null && #q_files[0] != null ? #q_files[0]?.getLengthText() : ‘’`
 
-#### getContentType()
+### getContentType()
 
 - **説明**：ファイルの Content-Type を取得します。
 - **入力**：ファイル型
@@ -98,7 +98,7 @@ nav_order: 1
 
 `#q_files != null && #q_files[0] != null ? #q_files[0]?.getContentType() : ‘’`
 
-#### getCharset()
+### getCharset()
 
 - **説明**：Content-Type の charset 情報のみを取得します。
 - **入力**：ファイル型
@@ -108,7 +108,7 @@ nav_order: 1
 `#q_files != null && #q_files[0] != null ? #q_files[0]?.getCharset() : ‘’`
 
 
-#### getMalwareScanStatus()
+### getMalwareScanStatus()
 
 - **説明**：ファイルのマルウェアチェック状態を取得します。
 - **入力**：ファイル型
@@ -128,7 +128,7 @@ nav_order: 1
 `#q_files != null && #q_files[0] != null ? #q_files[0]?.getMalwareScanStatus() : ‘’`
 
 
-#### getProcessDataInstanceId()
+### getProcessDataInstanceId()
 
 - **説明**：ファイルが格納されているデータインスタンスIDを取得します。
 - **入力**：ファイル型
@@ -137,7 +137,7 @@ nav_order: 1
 
 `#q_files != null && #q_files[0] != null ? #q_files[0]?.getProcessDataInstanceId() : 0`
 
-#### isImage()
+### isImage()
 
 - **説明**：ファイルが画像かどうかを判定します。
 - **入力**：ファイル型
@@ -147,7 +147,7 @@ nav_order: 1
 `#q_files != null && #q_files[0] != null && #q_files[0]?.isImage() == true ? ‘image’ : ‘’`
 
 
-#### isInline()
+### isInline()
 
 - **説明**：ファイルがブラウザでインライン表示可能か判定します。
 - **入力**：ファイル型
