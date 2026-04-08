@@ -7,7 +7,7 @@ lead: よくある質問をベースに、日付／日時データ項目の更�
 nav_order: 2
 ---
 
-> # 実例を確認したい場合
+> ## 実例を確認したい場合
 > 
 > このページでは、日付型, 日時型データ項目の更新手順や EL 式の具体例をまとめたサンプルを紹介しています。
 >
@@ -17,9 +17,9 @@ nav_order: 2
 
 ここでは前提と実現したい処理内容とEL式の記述例を掲載します。
 
-### 1. 日付型：申請日から週明けを求めたい
+## 1. 日付型：申請日から週明けを求めたい
 
-#### 質問
+### 質問
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -41,7 +41,7 @@ nav_order: 2
 説明：日付型データを別の日付型に変換する処理です。他のメソッドについても同様の手順で対応します。
 
 
-#### 回答
+### 回答
 
 ```
 EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
@@ -53,9 +53,9 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 
 ---
 
-### 2. 日付型：営業日計算をしたい
+## 2. 日付型：営業日計算をしたい
 
-#### 質問
+### 質問
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -74,7 +74,7 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 
 説明：この例は、ユーザーの要望が実現できない場合のパターンを示しています。
 
-#### 回答
+### 回答
 
 ```
 「契約開始日から3営業日後」の「営業日」を計算する関数は存在しない。
@@ -82,9 +82,9 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 
 ---
 
-### 3. 日時型：日数＋時刻を指定したい
+## 3. 日時型：日数＋時刻を指定したい
 
-#### 質問
+### 質問
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -104,7 +104,7 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
  - 更新対象が日付型の場合、日時型に変換することで時刻の操作が可能になります。
  - ユーザーの指定したデータ型が適切でないと判断される場合には、改善案も提示します。
 
-#### 回答
+### 回答
 
 ```
 EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
@@ -114,9 +114,9 @@ EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
 
 ---
 
-### 4. システム日時から計算したい
+## 4. システム日時から計算したい
 
-#### 質問
+### 質問
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -130,7 +130,7 @@ EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
 
 説明：processInstanceStartDatetime、#today、#now のようなシステム設定書式を使う場合に限り、セーフナビゲーション演算子（?.）は不要です。
 
-#### 回答
+### 回答
 
 ```
 EL式：processInstanceStartDatetime.addDays(7).getFirstTimeInDate()
@@ -142,9 +142,9 @@ processInstanceStartDatetime 日時型（プロセス開始日時）
 
 ---
 
-### 5. 直近の金曜日を日付型で求めたい
+## 5. 直近の金曜日を日付型で求めたい
 
-#### 質問
+### 質問
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -158,7 +158,7 @@ processInstanceStartDatetime 日時型（プロセス開始日時）
 
 説明：数日を加算して、現在の日付が金曜日より前か後かを判断する
 　
-#### 回答
+### 回答
 
 ```
 EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
@@ -168,9 +168,9 @@ EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
 
 ---
 
-### 6. 日付型→日時型：月末の指定時刻にしたい
+## 6. 日付型→日時型：月末の指定時刻にしたい
 
-#### 質問
+### 質問
 
 ```
 ワークフローアプリには、以下のデータ項目がある。
@@ -190,7 +190,7 @@ EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
  - この例では、日付型と日時型の相互変換および、それぞれに適用できるメソッドについて説明しています。
  - 要望に時間情報が含まれているため、設定対象のデータ項目は日時型である必要があります。
 
-#### 回答
+### 回答
 
 ```
 EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.addHours(10)
@@ -202,9 +202,9 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 
 ---
 
-### 7. UTCから「現地日付の0時」を計算したい
+## 7. UTCから「現地日付の0時」を計算したい
 
-#### 質問
+### 質問
 
 ```
 
@@ -222,7 +222,7 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 ```
 
 
-#### 回答
+### 回答
 
 ```
 この要件は、単体のEL式（データ更新のEL式）のみでは実現できない。理由：

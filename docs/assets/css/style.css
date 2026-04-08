@@ -356,7 +356,7 @@ thead{background:rgba(0,161,198,.08); color:var(--muted)}
   font-weight:700;
   padding:12px 16px;
   background:rgba(0,161,198,.10);
-  border-left:6px solid var(--accent);
+  border-left:4px solid var(--accent);
   border-radius:10px;
 }
 
