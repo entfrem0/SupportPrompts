@@ -7,7 +7,7 @@ lead: よくある質問をベースに、日付／日時データ項目の更�
 nav_order: 2
 ---
 
-> # 実例を確認したい場合
+> ## 実例を確認したい場合
 > 
 > このページでは、日付型, 日時型データ項目の更新手順や EL 式の具体例をまとめたサンプルを紹介しています。
 >
@@ -51,7 +51,6 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 設定対象のデータ項目: q_deadline 日付型
 ```
 
----
 
 ## 2. 日付型：営業日計算をしたい
 
@@ -80,7 +79,6 @@ EL式：#q_application_date?.addDays(7)?.getFirstDateInWeek()
 「契約開始日から3営業日後」の「営業日」を計算する関数は存在しない。
 ```
 
----
 
 ## 3. 日時型：日数＋時刻を指定したい
 
@@ -112,7 +110,6 @@ EL式：#q_repair_acceptdate?.addDays(12)?.getFirstTimeInDate()?.addHours(18)
 設定対象のデータ項目: q_repair_due 日時型
 ```
 
----
 
 ## 4. システム日時から計算したい
 
@@ -140,7 +137,6 @@ processInstanceStartDatetime 日時型（プロセス開始日時）
 設定対象のデータ項目: q_duetime
 ```
 
----
 
 ## 5. 直近の金曜日を日付型で求めたい
 
@@ -166,7 +162,6 @@ EL式：#today?.addDays(2)?.getFirstDateInWeek()?.addDays(-3)
 設定対象のデータ項目: q_start_date 日付型
 ```
 
----
 
 ## 6. 日付型→日時型：月末の指定時刻にしたい
 
@@ -200,7 +195,6 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 
 説明：入力が日付型の場合、.getFirstTimeInDate() を使って日時型に変換する必要があります。
 
----
 
 ## 7. UTCから「現地日付の0時」を計算したい
 
@@ -237,7 +231,6 @@ EL式：#q_hire_date?.addMonths(2)?.getLastDateInMonth()?.getFirstTimeInDate()?.
 ・代替案として、数値型のUTCオフセット項目（例：`q_utc_offset_minutes` 数値型）を追加し、その分だけ加減算してローカル0:00相当を近似計算する（ただしDST切替時には誤差が生じ得る）。
 ```
 
----
 
 ### 8. 日付型：複数日付の比較で締切を決めたい
 
